@@ -33,22 +33,35 @@ namespace MemoryGame.UserControls
 
         private void KeyPressHandler(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
+            switch(e.Key)
             {
+                case Key.Escape:
+                    KeyPressEscape();
+                    break;
 
-                if (grd_pauseMenu.Visibility == Visibility.Hidden)
-                {
-                    // Pause timer etc.
-                    grd_pauseMenu.Visibility = Visibility.Visible;
-                }
-
-                else
-                {
-                    // Resume timer etc.
-                    grd_pauseMenu.Visibility = Visibility.Hidden;
-
-                }
+                case Key.W:
+                    break;
             }
+        }
+
+        private void KeyPressEscape()
+        {
+            if (grd_pauseMenu.Visibility == Visibility.Hidden)
+            {
+                // Pause timer etc.
+                grd_pauseMenu.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                // Resume timer etc.
+                grd_pauseMenu.Visibility = Visibility.Hidden;
+
+            }
+        }
+        private void KeyPressW()
+        {
+            Content = new UserControl_EndScreen();
         }
     }
 }
