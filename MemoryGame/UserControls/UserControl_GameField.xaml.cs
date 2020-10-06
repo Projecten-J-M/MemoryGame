@@ -50,5 +50,9 @@ namespace MemoryGame.UserControls
                 }
             }
         }
+        private void Btn_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new UserControl_MainMenu();
+        }
     }
 }
