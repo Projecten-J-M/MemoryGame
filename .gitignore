@@ -51,3 +51,6 @@
 /.vs/MemoryGame/v16/Server/sqlite3/storage.ide-shm
 /.vs/MemoryGame/v16/Server/sqlite3/storage.ide
 /.vs/MemoryGame/v16/Server/sqlite3/db.lock
+/MemoryGame/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+/MemoryGame/obj/Release
+/MemoryGame/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
