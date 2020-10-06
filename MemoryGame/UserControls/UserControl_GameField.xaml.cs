@@ -30,7 +30,8 @@ namespace MemoryGame.UserControls
             var window = Window.GetWindow(this);
             window.KeyDown += KeyPressHandler;
         }
-        // 
+
+        // Controls what code 
         private void KeyPressHandler(object sender, KeyEventArgs e)
         {
             switch(e.Key)
@@ -40,6 +41,7 @@ namespace MemoryGame.UserControls
                     break;
 
                 case Key.W:
+                    KeyPressW();
                     break;
             }
         }
