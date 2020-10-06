@@ -30,13 +30,13 @@ namespace MemoryGame.UserControls
             var window = Window.GetWindow(this);
             window.KeyDown += KeyPressHandler;
         }
-
+        // 
         private void KeyPressHandler(object sender, KeyEventArgs e)
         {
             switch(e.Key)
             {
                 case Key.Escape:
-                    KeyPressEscape();
+                    TogglePauseMenu();
                     break;
 
                 case Key.W:
@@ -44,7 +44,7 @@ namespace MemoryGame.UserControls
             }
         }
 
-        private void KeyPressEscape()
+        private void TogglePauseMenu()
         {
             if (grd_pauseMenu.Visibility == Visibility.Hidden)
             {
@@ -62,6 +62,11 @@ namespace MemoryGame.UserControls
         private void KeyPressW()
         {
             Content = new UserControl_EndScreen();
+        }
+
+        private void Btn_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new UserControl_MainMenu();
         }
     }
 }
