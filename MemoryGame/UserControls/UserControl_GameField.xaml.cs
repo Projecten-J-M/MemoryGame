@@ -40,6 +40,7 @@ namespace MemoryGame.UserControls
                     break;
 
                 case Key.W:
+                    KeyPressW();
                     break;
             }
         }
@@ -63,10 +64,21 @@ namespace MemoryGame.UserControls
         {
             Content = new UserControl_EndScreen();
         }
-
+        // Knoppen om terug naar het hoofdmenu te gaan.
         private void Btn_Quit_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
+        }
+        // Hieronder geschreven door Jur Stedehouder
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            // TO DO: Put code to save game here.
+            Content = new UserControl_MainMenu();
+        }
+
+        private void Btn_Continue_Click(object sender, RoutedEventArgs e)
+        {
+            TogglePauseMenu();
         }
     }
 }

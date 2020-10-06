@@ -30,8 +30,8 @@
             </Grid.Background>
             <Label Content="Game Paused" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
 
-            <Button x:Name="btn_continue" Content="Continue" HorizontalAlignment="Center" Height="40" Margin="348,185,347,0" VerticalAlignment="Top" Width="105"/>
-            <Button x:Name="btn_save" Content="SaveAndQuit" HorizontalAlignment="Center" Height="40" Margin="348,230,348,0" VerticalAlignment="Top" Width="104"/>
+            <Button x:Name="btn_continue" Content="Continue" HorizontalAlignment="Center" Height="40" Margin="348,185,347,0" VerticalAlignment="Top" Width="105" Click="Btn_Continue_Click"/>
+            <Button x:Name="btn_save" Content="SaveAndQuit" HorizontalAlignment="Center" Height="40" Margin="348,230,348,0" VerticalAlignment="Top" Width="104" Click="Btn_Save_Click"/>
             <Button x:Name="btn_quit" Content="Quit to menu" HorizontalAlignment="Center" Height="40" Margin="348,275,348,0" VerticalAlignment="Top" Width="104" Click="Btn_Quit_Click"/>
         </Grid>
     </Grid>
