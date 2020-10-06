@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="Options" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
-        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Back_Click"/>
+        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Margin="10,10,0,0" FontSize="20" Click="Btn_Back_Click"/>
+        <Label x:Name="lbl_options" Content="Options" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="25"/>
+        <Button x:Name="btn_reset" Content="Reset Highscore" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="324,133,323.6,0" FontSize="20"/>
+        <Button x:Name="btn_credits" Content="Credits" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="0,210,0,0" FontSize="20"/>
+        <CheckBox x:Name="cbox_animations" Content="Animations" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,252,0,0" Height="54" Width="auto" FontSize="20"/>
+        <Slider x:Name="slider_volume" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.036,0.477" Height="24" Width="100" Margin="375,181,318.6,0"/>
+        <Label x:Name="lbl_volume" Content="Volume" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="294,168,423.6,0" FontSize="20"/>
+        <Label x:Name="lbl_percentage" Content="0%" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="480,168,276.6,0" FontSize="20" Width="auto"/>
     </Grid>
 </UserControl>
