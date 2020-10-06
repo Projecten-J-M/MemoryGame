@@ -24,5 +24,15 @@ namespace MemoryGame.UserControls
         {
             InitializeComponent();
         }
+
+        private void Btn_Play_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new UserControl_NameInput();
+        }
+
+        private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new UserControl_MainMenu();
+        }
     }
 }
