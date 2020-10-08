@@ -31,24 +31,55 @@ namespace MemoryGame.UserControls
             window.KeyDown += KeyPressHandler;
         }
 
+        // Controls what code 
         private void KeyPressHandler(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
+            switch(e.Key)
             {
+                case Key.Escape:
+                    TogglePauseMenu();
+                    break;
 
-                if (grd_pauseMenu.Visibility == Visibility.Hidden)
-                {
-                    // Pause timer etc.
-                    grd_pauseMenu.Visibility = Visibility.Visible;
-                }
-
-                else
-                {
-                    // Resume timer etc.
-                    grd_pauseMenu.Visibility = Visibility.Hidden;
-
-                }
+                case Key.W:
+                    KeyPressW();
+                    break;
             }
+        }
+
+        private void TogglePauseMenu()
+        {
+            if (grd_pauseMenu.Visibility == Visibility.Hidden)
+            {
+                // Pause timer etc.
+                grd_pauseMenu.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                // Resume timer etc.
+                grd_pauseMenu.Visibility = Visibility.Hidden;
+
+            }
+        }
+        private void KeyPressW()
+        {
+            Content = new UserControl_EndScreen();
+        }
+        // Knoppen om terug naar het hoofdmenu te gaan.
+        private void Btn_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new UserControl_MainMenu();
+        }
+        // Hieronder geschreven door Jur Stedehouder
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            // TO DO: Put code to save game here.
+            Content = new UserControl_MainMenu();
+        }
+
+        private void Btn_Continue_Click(object sender, RoutedEventArgs e)
+        {
+            TogglePauseMenu();
         }
     }
 }
