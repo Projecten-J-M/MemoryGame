@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("lobby-music-_original-soundtrack_.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("background_music.wav")]
 
 

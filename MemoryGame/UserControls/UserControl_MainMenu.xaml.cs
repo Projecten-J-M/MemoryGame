@@ -24,10 +24,6 @@ namespace MemoryGame.UserControls
         public UserControl_MainMenu()
         {
             InitializeComponent();
-            SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = @".\Lobby-Music-_Original-Soundtrack_.wav";
-            sp.PlayLooping();
-
         }
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)

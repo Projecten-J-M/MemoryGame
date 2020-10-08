@@ -20,10 +20,23 @@ namespace MemoryGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Start volume
+        public static MediaPlayer mediaPlayer;
+        public double mediaPlayer_Volume = 0.25;
+
         public MainWindow()
         {
             InitializeComponent();
             Content = new UserControls.UserControl_MainMenu();
+            mediaPlayer = new MediaPlayer();
+            SetBackgroundVolume(mediaPlayer_Volume);
+            mediaPlayer.Open(new Uri(@"C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\Background_Music.wav"));
+            mediaPlayer.Play();
+        }
+
+        public static void SetBackgroundVolume(double volume)
+        {
+            mediaPlayer.Volume = volume;
         }
     }
 }
