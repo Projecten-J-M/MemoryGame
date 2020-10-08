@@ -42,5 +42,11 @@ namespace MemoryGame.UserControls
         {
             slider_volume.Value = MainWindow.mediaPlayer.Volume;
         }
+
+        private void btn_credits_Click(object sender, RoutedEventArgs e)
+        {
+            Window creditsWindow = new Windows.CreditsWindow();
+            creditsWindow.ShowDialog();
+        }
     }
 }
