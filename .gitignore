@@ -3,6 +3,13 @@
 ################################################################################
 
 /.vs/MemoryGame/v16/.suo
+<<<<<<< HEAD
+/MemoryGame/obj/Release/MemoryGame_MarkupCompile.lref
+/MemoryGame/obj/Release/MemoryGame_MarkupCompile.cache
+/MemoryGame/obj/Release/MemoryGame.csprojAssemblyReference.cache
+/MemoryGame/obj/Release/App.g.cs
+/MemoryGame/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+=======
 /MemoryGame/obj/Release/Windows/MainWindow.g.cs
 /MemoryGame/obj/Release/UserControls/UserControl_Options.g.cs
 /MemoryGame/obj/Release/UserControls/UserControl_NameInput.g.cs
@@ -12,6 +19,7 @@
 /MemoryGame/obj/Release/MemoryGame_MarkupCompile.lref
 /MemoryGame/obj/Release/MemoryGame_MarkupCompile.cache
 /MemoryGame/obj/Release/App.g.cs
+>>>>>>> 107c9745cf7c414b2ba756d5dd9a3d9ee2ff8222
 /MemoryGame/obj/Debug/Windows/MainWindow.g.i.cs
 /MemoryGame/obj/Debug/Windows/MainWindow.g.cs
 /MemoryGame/obj/Debug/Windows/MainWindow.baml
@@ -39,13 +47,30 @@
 /MemoryGame/obj/Debug/MemoryGame.csprojAssemblyReference.cache
 /MemoryGame/obj/Debug/MemoryGame.csproj.GenerateResource.cache
 /MemoryGame/obj/Debug/MemoryGame.csproj.FileListAbsolute.txt
+<<<<<<< HEAD
+/MemoryGame/obj/Debug/MemoryGame.csproj.CoreCompileInputs.cache
+/MemoryGame/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/MemoryGame/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/MemoryGame/obj/Debug/App.g.cs
+/MemoryGame/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+=======
 /MemoryGame/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /MemoryGame/obj/Debug/App.g.cs
+>>>>>>> 107c9745cf7c414b2ba756d5dd9a3d9ee2ff8222
 /MemoryGame/bin/Debug/MemoryGame.pdb
 /MemoryGame/bin/Debug/MemoryGame.exe.config
 /MemoryGame/bin/Debug/MemoryGame.exe
 /.vs/VSWorkspaceState.json
 /.vs/slnx.sqlite
+<<<<<<< HEAD
+/.vs/MemoryGame - Gezamelijk/v16/.suo
+/MemoryGame/obj/Release/Windows/MainWindow.g.cs
+/MemoryGame/obj/Release/UserControls/UserControl_Options.g.cs
+/MemoryGame/obj/Release/UserControls/UserControl_NameInput.g.cs
+/MemoryGame/obj/Release/UserControls/UserControl_MainMenu.g.cs
+/MemoryGame/obj/Release/UserControls/UserControl_Highscores.g.cs
+/MemoryGame/obj/Release/UserControls/UserControl_GameField.g.cs
+=======
 /.vs/ProjectSettings.json
 /.vs/MemoryGame/v16/Server/sqlite3/storage.ide-wal
 /.vs/MemoryGame/v16/Server/sqlite3/storage.ide-shm
@@ -54,3 +79,7 @@
 /MemoryGame/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 /MemoryGame/obj/Release
 /MemoryGame/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+>>>>>>> 107c9745cf7c414b2ba756d5dd9a3d9ee2ff8222
+/MemoryGame/obj/Debug/MemoryGame_MarkupCompile.i.lref
+/MemoryGame/obj/Debug/MemoryGame_MarkupCompile.i.cache
+/MemoryGame/obj/Debug/App.g.i.cs

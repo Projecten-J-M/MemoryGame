@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,10 @@ namespace MemoryGame.UserControls
         public UserControl_MainMenu()
         {
             InitializeComponent();
+            SoundPlayer sp = new SoundPlayer();
+            sp.SoundLocation = @".\Lobby-Music-_Original-Soundtrack_.wav";
+            sp.PlayLooping();
+
         }
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
