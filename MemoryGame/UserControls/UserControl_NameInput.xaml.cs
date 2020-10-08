@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MemoryGame.Classes;
 
 namespace MemoryGame.UserControls
 {
@@ -32,7 +33,8 @@ namespace MemoryGame.UserControls
 
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)
         {
-            Content = new UserControl_GameField();
+            Game game = new Game(new GameConfig() { FieldHeight = 4, FieldWidth = 4, PlayerName1 = tbx_player1.Text, PlayerName2 = tbx_player2.Text});
+            Content = new UserControl_GameField(game);
         }
     }
 }

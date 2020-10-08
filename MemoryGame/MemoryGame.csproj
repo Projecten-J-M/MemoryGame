@@ -91,6 +91,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\GameConfig.cs" />
     <Compile Include="UserControls\UserControl_EndScreen.xaml.cs">
       <DependentUpon>UserControl_EndScreen.xaml</DependentUpon>
     </Compile>

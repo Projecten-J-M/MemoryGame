@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MemoryGame.Classes;
 
 namespace MemoryGame.UserControls
 {
@@ -20,8 +21,10 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_GameField : UserControl
     {
-        public UserControl_GameField()
+        private Game _game;
+        public UserControl_GameField(Game game)
         {
+            _game = game;
             InitializeComponent();
         }
 
@@ -29,7 +32,32 @@ namespace MemoryGame.UserControls
         {
             var window = Window.GetWindow(this);
             window.KeyDown += KeyPressHandler;
+
+            SetupPlayfield(_game.Config.FieldHeight, _game.Config.FieldWidth);
+            SetNames(new string[] { _game.Config.PlayerName1, _game.Config.PlayerName2});
         }
+
+        private void SetNames(string[] names)
+        {
+            lbl_player1Name.Content = names[0];
+            lbl_player2Name.Content = names[1];
+        }
+
+        private void SetupPlayfield(int height, int width)
+        {
+            for (int i = 0; i < height; i++)
+            {
+                grd_cardGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75) });
+            }
+
+            for (int i = 0; i < width; i++)
+            {
+                grd_cardGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(75) });
+            }
+
+            grd_cardGrid.ShowGridLines = true;
+        }
+
 
         // Controls what code 
         private void KeyPressHandler(object sender, KeyEventArgs e)
@@ -45,7 +73,6 @@ namespace MemoryGame.UserControls
                     break;
             }
         }
-
         private void TogglePauseMenu()
         {
             if (grd_pauseMenu.Visibility == Visibility.Hidden)
@@ -65,6 +92,8 @@ namespace MemoryGame.UserControls
         {
             Content = new UserControl_EndScreen();
         }
+
+        #region PauseMenuButtonEvents
         // Knoppen om terug naar het hoofdmenu te gaan.
         private void Btn_Quit_Click(object sender, RoutedEventArgs e)
         {
@@ -77,9 +106,7 @@ namespace MemoryGame.UserControls
             Content = new UserControl_MainMenu();
         }
 
-        private void Btn_Continue_Click(object sender, RoutedEventArgs e)
-        {
-            TogglePauseMenu();
-        }
+        private void Btn_Continue_Click(object sender, RoutedEventArgs e) => TogglePauseMenu();
+        #endregion
     }
 }
