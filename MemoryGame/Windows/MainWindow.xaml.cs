@@ -30,7 +30,7 @@ namespace MemoryGame
             Content = new UserControls.UserControl_MainMenu();
             mediaPlayer = new MediaPlayer();
             SetBackgroundVolume(mediaPlayer_Volume);
-            mediaPlayer.Open(new Uri(@"C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\Background_Music.wav"));
+            mediaPlayer.Open(new Uri("Background_Music.wav", UriKind.Relative));
             mediaPlayer.Play();
         }
 
