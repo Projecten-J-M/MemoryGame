@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="UserControls\UserControl_ContinueGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UserControl_EndScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,9 @@
     </Compile>
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\GameConfig.cs" />
+    <Compile Include="UserControls\UserControl_ContinueGame.xaml.cs">
+      <DependentUpon>UserControl_ContinueGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControl_EndScreen.xaml.cs">
       <DependentUpon>UserControl_EndScreen.xaml</DependentUpon>
     </Compile>
