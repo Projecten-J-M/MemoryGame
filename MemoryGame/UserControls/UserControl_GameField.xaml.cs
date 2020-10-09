@@ -25,16 +25,17 @@ namespace MemoryGame.UserControls
     public partial class UserControl_GameField : UserControl
     {
         private Game _game;
+        private DispatcherTimer timer;
+
+        public TimeSpan time;
         public UserControl_GameField(Game game)
         {
             _game = game;
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
-            
-            timer.Interval = new TimeSpan(0, 0, 1); 
+            time = new TimeSpan(0, 0, 0);
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 1000); 
             timer.Tick += dtClockTime_Tick;
-
-            laatste_tijd = DateTime.Now;
             timer.Start();
         }
 
@@ -88,13 +89,14 @@ namespace MemoryGame.UserControls
             if (grd_pauseMenu.Visibility == Visibility.Hidden)
             {
                 // Pause timer etc.
-                
+                timer.Stop();
                 grd_pauseMenu.Visibility = Visibility.Visible;
             }
 
             else
             {
                 // Resume timer etc.
+                timer.Start();
                 grd_pauseMenu.Visibility = Visibility.Hidden;
 
             }
@@ -120,18 +122,12 @@ namespace MemoryGame.UserControls
         private void Btn_Continue_Click(object sender, RoutedEventArgs e) => TogglePauseMenu();
         #endregion
 
-        //Code hieronder geschreven door Jur Stedehouder
-
-        private TimeSpan tijd = new TimeSpan(0);
-        private DateTime laatste_tijd = DateTime.MinValue;
-
+        //Code hieronder geschreven door Jur Stedehouder gecontroleerd door Mark Hooijberg
         
         private void dtClockTime_Tick(object sender, EventArgs e)
         {
-            var volgende_tijd = DateTime.Now;
-            tijd = tijd.Add(DateTime.Now - laatste_tijd);
-            laatste_tijd = volgende_tijd;
-            klok.Content = tijd.ToString(@"mm\:ss");
+            time += new TimeSpan(0, 0, 1);
+            klok.Content = time.Duration().ToString(@"mm\:ss");
 
         }
 
