@@ -28,7 +28,7 @@ namespace MemoryGame.UserControls
 
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            Content = new UserControl_MainMenu();
+            Content = new ContinueGame();
         }
 
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)

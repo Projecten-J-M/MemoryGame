@@ -28,7 +28,7 @@ namespace MemoryGame.UserControls
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
-            Content = new UserControl_NameInput();
+            Content = new ContinueGame();
         }
 
         private void Btn_Highscores_Click(object sender, RoutedEventArgs e)
