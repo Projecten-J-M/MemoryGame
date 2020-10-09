@@ -29,8 +29,15 @@ namespace MemoryGame
             InitializeComponent();
             Content = new UserControls.UserControl_MainMenu();
             mediaPlayer = new MediaPlayer();
+            mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             SetBackgroundVolume(mediaPlayer_Volume);
-            mediaPlayer.Open(new Uri(@"C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\Background_Music.wav"));
+            mediaPlayer.Open(new Uri("Background_Music.wav", UriKind.Relative));
+            mediaPlayer.Play();
+        }
+
+        private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            mediaPlayer.Position = TimeSpan.Zero;
             mediaPlayer.Play();
         }
 
