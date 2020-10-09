@@ -4,12 +4,4 @@
 
 **/MemoryGame/obj
 **/MemoryGame/bin
-
-/.vs/MemoryGame/v16/.suo
-/.vs/VSWorkspaceState.json
-/.vs/slnx.sqlite
-/.vs/ProjectSettings.json
-/.vs/MemoryGame/v16/Server/sqlite3/storage.ide-wal
-/.vs/MemoryGame/v16/Server/sqlite3/storage.ide-shm
-/.vs/MemoryGame/v16/Server/sqlite3/storage.ide
-/.vs/MemoryGame/v16/Server/sqlite3/db.lock
+**/.vs
