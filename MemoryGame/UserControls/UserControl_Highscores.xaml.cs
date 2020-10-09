@@ -25,6 +25,12 @@ namespace MemoryGame.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Returns to main menu.
+        /// By: Mark Hooijberg.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();

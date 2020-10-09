@@ -26,11 +26,20 @@ namespace MemoryGame.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Assigns a new ContinueGame usercontrol object to the content.
+        /// By: Mark Hooijberg
+        /// Updated by: Duncan Dreize
+        /// </summary>
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Content = new ContinueGame();
         }
 
+        /// <summary>
+        /// Start a new game with configuration.
+        /// By: Mark Hooijberg
+        /// </summary>
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)
         {
             Game game = new Game(new GameConfig() { FieldHeight = 4, FieldWidth = 4, PlayerName1 = tbx_player1.Text, PlayerName2 = tbx_player2.Text});

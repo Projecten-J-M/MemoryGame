@@ -28,6 +28,7 @@ namespace MemoryGame
         {
             InitializeComponent();
             Content = new UserControls.UserControl_MainMenu();
+
             mediaPlayer = new MediaPlayer();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             SetBackgroundVolume(mediaPlayer_Volume);
@@ -35,6 +36,10 @@ namespace MemoryGame
             mediaPlayer.Play();
         }
 
+        /// <summary>
+        /// Loops the background music.
+        /// By: Niels Essink
+        /// </summary>
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {
             mediaPlayer.Position = TimeSpan.Zero;

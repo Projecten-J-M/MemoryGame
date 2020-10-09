@@ -26,11 +26,22 @@ namespace MemoryGame.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Return to main menu,
+        /// Written by: Mark Hooijberg
+        /// Implemented by: Jur Stedehouder
+        /// </summary>
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
         }
 
+        /// <summary>
+        /// Calculates the volume percentage to update the volume percentage label and updates the volume.
+        /// By: Mark Hooijberg.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_volume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lbl_percentage.Content = Math.Round((e.NewValue * 100), 0) + "%";
@@ -38,11 +49,19 @@ namespace MemoryGame.UserControls
             MainWindow.SetBackgroundVolume(Math.Round(e.NewValue, 2));
         }
 
+        /// <summary>
+        /// Set the current volume value on the slider after its been loaded.
+        /// By: Mark Hooijberg.
+        /// </summary>
         private void slider_volume_Loaded(object sender, RoutedEventArgs e)
         {
             slider_volume.Value = MainWindow.mediaPlayer.Volume;
         }
 
+        /// <summary>
+        /// Show a new dialogwindow with the credits of the game makers.
+        /// By: Mark Hooijberg
+        /// </summary>
         private void btn_credits_Click(object sender, RoutedEventArgs e)
         {
             Window creditsWindow = new Windows.CreditsWindow();

@@ -28,11 +28,21 @@ namespace MemoryGame.UserControls
             _game = game;
         }
 
+        /// <summary>
+        /// Assigns a new game configuration screen to the content.
+        /// Written by: Mark Hooijberg
+        /// Implemented by: TODO: figure out who implemented the functionality.
+        /// </summary>
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
         }
 
+        /// <summary>
+        /// Returns to main menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
