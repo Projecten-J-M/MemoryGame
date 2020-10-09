@@ -10,7 +10,7 @@
     <Grid>
         <!-- GameField -->
         <Grid x:Name="grd_gameField" Background="#181818">
-            <Label Content="Time: 00:00" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
+            <Label Name="klok" Content="00:00" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
 
             <!-- Player 1 -->
             <Label x:Name="lbl_player1Name" Content="Player 1: Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.474,1.332" Foreground="Aqua" FontSize="20"/>
