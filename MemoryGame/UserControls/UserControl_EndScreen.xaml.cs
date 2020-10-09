@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MemoryGame.Classes;
 
 namespace MemoryGame.UserControls
 {
@@ -20,9 +21,11 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_EndScreen : UserControl
     {
-        public UserControl_EndScreen()
+        private Game _game;
+        public UserControl_EndScreen(Game game)
         {
             InitializeComponent();
+            _game = game;
         }
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)

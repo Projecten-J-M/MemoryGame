@@ -37,6 +37,8 @@ namespace MemoryGame.UserControls
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1000); 
             timer.Tick += dtClockTime_Tick;
             timer.Start();
+
+            //TODO: per player timer.s
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -58,12 +60,12 @@ namespace MemoryGame.UserControls
         {
             for (int i = 0; i < height; i++)
             {
-                grd_cardGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75) });
+                grd_cardGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(grd_cardGrid.Height / height) });
             }
 
             for (int i = 0; i < width; i++)
             {
-                grd_cardGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(75) });
+                grd_cardGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(grd_cardGrid.Width / width)});
             }
 
             grd_cardGrid.ShowGridLines = true;
@@ -103,7 +105,10 @@ namespace MemoryGame.UserControls
         }
         private void KeyPressW()
         {
-            Content = new UserControl_EndScreen();
+            _game.PlayerScore1 = Convert.ToInt32(lbl_player1Score.Content);
+            _game.PlayerScore2 = Convert.ToInt32(lbl_player2Score.Content);
+            Content = new UserControl_EndScreen(_game);
+
         }
 
         #region PauseMenuButtonEvents
@@ -128,8 +133,19 @@ namespace MemoryGame.UserControls
         {
             time += new TimeSpan(0, 0, 1);
             klok.Content = time.Duration().ToString(@"mm\:ss");
-
         }
 
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            grd_cardGrid.Height = e.NewSize.Height - 150;
+            grd_cardGrid.Width = grd_cardGrid.Height;
+            grd_cardGrid.Margin = new Thickness(0, 75, 0, 0);
+
+            foreach (RowDefinition rowDefinition in grd_cardGrid.RowDefinitions)
+                rowDefinition.Height = new GridLength(grd_cardGrid.Height / grd_cardGrid.RowDefinitions.Count());
+            
+            foreach (ColumnDefinition columnDefinition in grd_cardGrid.ColumnDefinitions)
+                columnDefinition.Width = new GridLength(grd_cardGrid.Width / grd_cardGrid.ColumnDefinitions.Count());
+        }
     }
 }
