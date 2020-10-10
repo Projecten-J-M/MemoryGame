@@ -28,6 +28,10 @@ namespace MemoryGame.UserControls
             _game = game;
         }
 
+        public UserControl_EndScreen()
+        {
+        }
+
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
@@ -37,5 +41,29 @@ namespace MemoryGame.UserControls
         {
             Content = new UserControl_MainMenu();
         }
+
+        private void ShowScore(string[] names)
+        {
+            if (_game.PlayerScore1 > _game.PlayerScore2)
+            {
+                lbl_winner_select.Content = names[0] + " has won with " + _game.PlayerScore1 + " points!";
+                lbl_loser_select.Content = names[1] + " has lost with " + _game.PlayerScore2 + "points!";
+            }
+            else if (_game.PlayerScore1 < _game.PlayerScore2)
+            {
+                lbl_winner_select.Content = names[1] + " has won with " + _game.PlayerScore2 + " points!";
+                lbl_loser_select.Content = names[0] + " has lost with " + _game.PlayerScore1 + "points!";
+            }
+            else if (_game.PlayerScore1 == _game.PlayerScore2) 
+            {
+                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + _game.PlayerScore1 + " points!"; 
+            }
+            else
+            {
+                lbl_winner_select.Content = "Something went wrong!";
+            }
+        }
     }
+    
+    
 }
