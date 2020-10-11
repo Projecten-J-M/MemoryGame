@@ -20,6 +20,9 @@ namespace MemoryGame.Classes
         public Game(GameConfig config)
         {
             Config = config;
+            Player1 = new Player() { Score = config.startScore, Time = new TimeSpan(0, 0, 0) };
+            Player2 = new Player() { Score = config.startScore, Time = new TimeSpan(0, 0, 0) };
+            Turn = config.StartPlayer;
         }
     }
 

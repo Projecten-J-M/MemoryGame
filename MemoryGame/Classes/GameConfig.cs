@@ -12,5 +12,7 @@ namespace MemoryGame.Classes
         public int FieldWidth { get; set; }
         public String PlayerName1 { get; set; }
         public String PlayerName2 { get; set; }
+        public int startScore { get; set; }
+        public Game.PlayerTurn StartPlayer { get; set; }
     }
 }
