@@ -28,24 +28,42 @@ namespace MemoryGame.UserControls
             _game = game;
         }
 
-        /// <summary>
-        /// Assigns a new game configuration screen to the content.
-        /// Written by: Mark Hooijberg
-        /// Implemented by: TODO: figure out who implemented the functionality.
-        /// </summary>
+        public UserControl_EndScreen()
+        {
+        }
+
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
         }
 
-        /// <summary>
-        /// Returns to main menu.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
         }
+
+        private void ShowScore(string[] names)
+        {
+            if (_game.PlayerScore1 > _game.PlayerScore2)
+            {
+                lbl_winner_select.Content = names[0] + " has won with " + _game.PlayerScore1 + " points!";
+                lbl_loser_select.Content = names[1] + " has lost with " + _game.PlayerScore2 + "points!";
+            }
+            else if (_game.PlayerScore1 < _game.PlayerScore2)
+            {
+                lbl_winner_select.Content = names[1] + " has won with " + _game.PlayerScore2 + " points!";
+                lbl_loser_select.Content = names[0] + " has lost with " + _game.PlayerScore1 + "points!";
+            }
+            else if (_game.PlayerScore1 == _game.PlayerScore2) 
+            {
+                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + _game.PlayerScore1 + " points!"; 
+            }
+            else
+            {
+                lbl_winner_select.Content = "Something went wrong!";
+            }
+        }
     }
+    
+    
 }
