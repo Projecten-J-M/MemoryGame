@@ -156,6 +156,14 @@
     <Content Include="Background_Music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Harold\DoctorHarold.jpeg" />
+    <Resource Include="Harold\HandyManHarold.jpeg" />
+    <Resource Include="Harold\HaroldBuinissGuy.jpeg" />
+    <Resource Include="Harold\HaroldCards.jpeg" />
+    <Resource Include="Harold\HaroldPhone.jpg" />
+    <Resource Include="Harold\HaroldPsychoGamer.jpeg" />
+    <Resource Include="Harold\HaroldSimp.jpeg" />
+    <Resource Include="Harold\HaroldTable.png" />
     <Resource Include="mempic2.png" />
     <Resource Include="mempic.png" />
   </ItemGroup>
