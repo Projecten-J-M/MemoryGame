@@ -216,8 +216,8 @@ namespace MemoryGame.UserControls
         /// </summary>
         private void KeyPressW()
         {
-            _game.PlayerScore1 = Convert.ToInt32(lbl_player1Score.Content.ToString().Split(' ')[1]);
-            _game.PlayerScore2 = Convert.ToInt32(lbl_player2Score.Content.ToString().Split(' ')[1]);
+            _game.Player1.Score = Convert.ToInt32(lbl_player1Score.Content.ToString().Split(' ')[1]);
+            _game.Player2.Score = Convert.ToInt32(lbl_player2Score.Content.ToString().Split(' ')[1]);
             Content = new UserControl_EndScreen(_game);
         }
         #endregion
