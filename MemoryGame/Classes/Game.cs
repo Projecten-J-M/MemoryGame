@@ -9,21 +9,25 @@ namespace MemoryGame.Classes
     public class Game
     {
         public GameConfig Config;
-        public int PlayerScore1 { get; set; }
-        public int PlayerScore2 { get; set; }
-        public TimeSpan PlayerTime1 { get; set; }
-        public TimeSpan PlayerTime2 { get; set; }
-
         public Card[] CardCollection { get; set; }
+        public Player Player1 { get; set; }
+        public Player Player2 { get; set; }
 
-        public Game.PlayerTurn Turn { get; set; }
+        public PlayerTurn Turn { get; set; }
 
-        public enum PlayerTurn { Player1, Player2 }
+        public enum PlayerTurn { Player1, Player2}
         
         public Game(GameConfig config)
         {
             Config = config;
         }
+    }
+
+    public class Player
+    {
+        public int Score { get; set; }
+        public TimeSpan Time { get; set; }
+
     }
 
     public class Card
