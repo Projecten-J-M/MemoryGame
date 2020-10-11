@@ -28,10 +28,6 @@ namespace MemoryGame.UserControls
             _game = game;
         }
 
-        public UserControl_EndScreen()
-        {
-        }
-
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
