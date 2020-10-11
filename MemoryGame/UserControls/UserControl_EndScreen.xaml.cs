@@ -40,19 +40,19 @@ namespace MemoryGame.UserControls
 
         private void ShowScore(string[] names)
         {
-            if (_game.PlayerScore1 > _game.PlayerScore2)
+            if (_game.Player1.Score > _game.Player2.Score)
             {
-                lbl_winner_select.Content = names[0] + " has won with " + _game.PlayerScore1 + " points!";
-                lbl_loser_select.Content = names[1] + " has lost with " + _game.PlayerScore2 + "points!";
+                lbl_winner_select.Content = names[0] + " has won with " + _game.Player1.Score + " points!";
+                lbl_loser_select.Content = names[1] + " has lost with " + _game.Player2.Score + "points!";
             }
-            else if (_game.PlayerScore1 < _game.PlayerScore2)
+            else if (_game.Player1.Score < _game.Player2.Score)
             {
-                lbl_winner_select.Content = names[1] + " has won with " + _game.PlayerScore2 + " points!";
-                lbl_loser_select.Content = names[0] + " has lost with " + _game.PlayerScore1 + "points!";
+                lbl_winner_select.Content = names[1] + " has won with " + _game.Player2.Score + " points!";
+                lbl_loser_select.Content = names[0] + " has lost with " + _game.Player1.Score + "points!";
             }
-            else if (_game.PlayerScore1 == _game.PlayerScore2) 
+            else if (_game.Player1.Score == _game.Player2.Score) 
             {
-                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + _game.PlayerScore1 + " points!"; 
+                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + _game.Player1.Score + " points!"; 
             }
             else
             {
