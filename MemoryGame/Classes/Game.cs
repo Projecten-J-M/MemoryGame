@@ -9,7 +9,7 @@ namespace MemoryGame.Classes
     public class Game
     {
         public GameConfig Config;
-        public Card[] CardCollection { get; set; }
+        public List<Card> CardCollection { get; set; }
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
 
@@ -35,6 +35,8 @@ namespace MemoryGame.Classes
 
     public class Card
     {
+        public Player TurnedBy { get; set; }
+        public int AtTurn { get; set; }
         public bool IsTurned { get; set; }
         public Uri FrontImageURI { get; set; }
         public Uri BackImageURI { get; set; }
