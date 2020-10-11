@@ -9,7 +9,7 @@ namespace MemoryGame.Classes
     public class Game
     {
         public GameConfig Config;
-        public Card[] CardCollection { get; set; }
+        public List<Card> CardCollection { get; set; }
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
 
