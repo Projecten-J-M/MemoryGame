@@ -35,6 +35,8 @@ namespace MemoryGame.Classes
 
     public class Card
     {
+        public Player TurnedBy { get; set; }
+        public int AtTurn { get; set; }
         public bool IsTurned { get; set; }
         public Uri FrontImageURI { get; set; }
         public Uri BackImageURI { get; set; }
