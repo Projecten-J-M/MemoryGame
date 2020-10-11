@@ -40,6 +40,9 @@ namespace MemoryGame.UserControls
             timer.Tick += dtClockTime_Tick;
             timer.Start();
 
+            lbl_player1Score.Content = _game.Player1.Score;
+            lbl_player1Score.Content = _game.Player2.Score;
+
             //TODO: per player timer.s
         }
 
@@ -137,6 +140,9 @@ namespace MemoryGame.UserControls
         {
             Image card = (Image)sender;
             card.Source = (BitmapImage)card.Tag;
+
+            _game.Player1.Score = 0;
+            _game.Player1.Score = 0;
         }
 
         /// <summary>
