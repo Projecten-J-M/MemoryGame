@@ -41,7 +41,7 @@ namespace MemoryGame.UserControls
             timer.Start();
 
             lbl_player1Score.Content = _game.Player1.Score;
-            lbl_player1Score.Content = _game.Player2.Score;
+            lbl_player2Score.Content = _game.Player2.Score;
 
             //TODO: per player timer.s
         }
@@ -136,14 +136,47 @@ namespace MemoryGame.UserControls
         /// 
         /// </summary>
         /// <param name="sender"></param>
+        /// 
+
+        ///<summary>
+        ///Score system with time and Mulitpliers
+        ///by: Jur Stedehouder, Peter Jongman
+        ///Enhached by: Mark Hooijberg
+        ///</summary>
+        
+        private int BaseScore1 = 100;
+        //private int BaseScore2 = 100;
         private void Card_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Image card = (Image)sender;
             card.Source = (BitmapImage)card.Tag;
 
-            _game.Player1.Score = 0;
-            _game.Player1.Score = 0;
+            int AddedScore = 0;
+
+            if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 30)
+            {
+                AddedScore -= 90;
+
+                // Hoi zus van jur :)
+                //AddedScore -= 90;
+            }
+            else if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 10)
+            {
+                AddedScore -= 50;
+                //AddedScore -= 50;
+            }
+            
+                
+            //if()
+
+            _game.Player1.Score += BaseScore1 + AddedScore;
+            //_game.Player2.Score += BaseScore2 + AddedScore;
+
+            lbl_player1Score.Content = _game.Player1.Score;
+            //lbl_player2Score.Content = _game.Player2.Score;
         }
+
+
 
         /// <summary>
         /// Fired when clicked on Continue in pause menu. Closes the pause menu.
@@ -177,7 +210,7 @@ namespace MemoryGame.UserControls
         {
             grd_cardGrid.Height = e.NewSize.Height - 150;
             grd_cardGrid.Width = grd_cardGrid.Height;
-
+            //TODO: Verfijning, als het te klein word dan crasht het
             foreach (RowDefinition rowDefinition in grd_cardGrid.RowDefinitions)
                 rowDefinition.Height = new GridLength(grd_cardGrid.Height / grd_cardGrid.RowDefinitions.Count());
             
