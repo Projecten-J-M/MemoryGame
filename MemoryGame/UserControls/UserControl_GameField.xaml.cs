@@ -90,6 +90,29 @@ namespace MemoryGame.UserControls
             for (int i = 0; i < columns; i++)
                 grd_cardGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(grd_cardGrid.Width / columns)});
         }
+        
+        /// <summary>
+        /// Fills the card grid with elements.
+        /// </summary>
+        private void FillPlayField()
+        {
+            for (int row = 0; row < grd_cardGrid.RowDefinitions.Count; row++)
+            {
+                for (int column = 0; column < grd_cardGrid.ColumnDefinitions.Count; column++)
+                {
+                    Image card = new Image();
+
+                    card.MouseDown += Card_MouseDown;
+                    card.Source = new BitmapImage(new Uri("\\mempic.png", UriKind.Relative));
+                    card.Tag = new BitmapImage(new Uri("\\mempic2.png", UriKind.Relative));
+                    card.Stretch = Stretch.Fill;
+                    Grid.SetRow(card, row);
+                    Grid.SetColumn(card, column);
+                    grd_cardGrid.Children.Add(card);
+
+                }
+            }
+        }
         #endregion
 
         #region Event Handlers
@@ -103,7 +126,17 @@ namespace MemoryGame.UserControls
             window.KeyDown += KeyPressHandler;
 
             SetupPlayfield(_game.Config.FieldHeight, _game.Config.FieldWidth);
+            FillPlayField();
             SetNames(new string[] { _game.Config.PlayerName1, _game.Config.PlayerName2});
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        private void Card_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image card = (Image)sender;
+            card.Source = (BitmapImage)card.Tag;
         }
 
         /// <summary>
