@@ -156,28 +156,28 @@
     <Content Include="Background_Music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Harold\1.jpeg">
+    <Resource Include="bin\Debug\Harold\1.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\2.jpeg">
+    <Resource Include="bin\Debug\Harold\2.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\3.jpeg">
+    <Resource Include="bin\Debug\Harold\3.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\4.jpeg">
+    <Resource Include="bin\Debug\Harold\4.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\5.jpeg">
+    <Resource Include="bin\Debug\Harold\5.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\6.jpeg">
+    <Resource Include="bin\Debug\Harold\6.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\7.jpeg">
+    <Resource Include="bin\Debug\Harold\7.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Harold\8.jpeg">
+    <Resource Include="bin\Debug\Harold\8.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="mempic.png" />

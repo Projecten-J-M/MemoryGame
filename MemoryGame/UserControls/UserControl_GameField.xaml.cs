@@ -84,6 +84,8 @@ namespace MemoryGame.UserControls
                 lbl_player1Name.Foreground = new SolidColorBrush(Colors.Aqua);
                 lbl_player2Score.Foreground = new SolidColorBrush(Colors.DarkCyan);
                 lbl_player1Score.Foreground = new SolidColorBrush(Colors.Aqua);
+                lbl_player1Time.Foreground = new SolidColorBrush(Colors.Aqua);
+                lbl_player2Time.Foreground = new SolidColorBrush(Colors.DarkCyan);
             }
             else
             {
@@ -91,6 +93,8 @@ namespace MemoryGame.UserControls
                 lbl_player2Name.Foreground = new SolidColorBrush(Colors.Aqua);
                 lbl_player1Score.Foreground = new SolidColorBrush(Colors.DarkCyan);
                 lbl_player2Score.Foreground = new SolidColorBrush(Colors.Aqua);
+                lbl_player2Time.Foreground = new SolidColorBrush(Colors.Aqua);
+                lbl_player1Time.Foreground = new SolidColorBrush(Colors.DarkCyan);
             }
         }
 
@@ -217,10 +221,10 @@ namespace MemoryGame.UserControls
                 if ((card.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
                 {
                     int AddedScore = 0;
-                    if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 30)
+                    if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 30)
                         AddedScore -= 90;
 
-                    else if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 10)
+                    else if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 10)
                         AddedScore -= 50;
 
                     Player activePlayer = game.GetActivePlayer();
@@ -261,10 +265,10 @@ namespace MemoryGame.UserControls
                 if ((card.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
                 {
                     int AddedScore = 0;
-                    if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 30)
+                    if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 30)
                         AddedScore -= 90;
 
-                    else if (TimeSpan.Parse("00:" + klok.Content.ToString()).TotalSeconds > 10)
+                    else if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 10)
                         AddedScore -= 50;
 
                     Player activePlayer = game.GetActivePlayer();
@@ -331,7 +335,7 @@ namespace MemoryGame.UserControls
         {
             grd_cardGrid.Height = e.NewSize.Height - 150;
             grd_cardGrid.Width = grd_cardGrid.Height;
-            //TODO: Verfijning, als het te klein word dan crasht het
+            //TODO: Verfijning, als het te klein wordt dan crasht het
             foreach (RowDefinition rowDefinition in grd_cardGrid.RowDefinitions)
                 rowDefinition.Height = new GridLength(grd_cardGrid.Height / grd_cardGrid.RowDefinitions.Count());
             
@@ -340,14 +344,26 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Updates adds a second to the time and time lable.
+        /// Updates adds a second to the time and time label.
         /// Originally witten by: Jur Stedehouder
         /// Enhanced by: Mark Hooijberg
+        /// Modified by: Duncan Dreize, added a second timer and keeps track of time per player.
         /// </summary>
         private void dtClockTime_Tick(object sender, EventArgs e)
         {
-            time += new TimeSpan(0, 0, 1);
-            klok.Content = time.Duration().ToString(@"mm\:ss");
+            game.GetActivePlayer().Time += new TimeSpan(0, 0, 1);
+
+
+            if (game.Turn == Game.PlayerTurn.Player1)
+            { 
+                lbl_player1Time.Content = game.GetActivePlayer().Time.Duration().ToString(@"mm\:ss");
+            }
+             else if (game.Turn == Game.PlayerTurn.Player2)
+            {
+                lbl_player2Time.Content = game.GetActivePlayer().Time.Duration().ToString(@"mm\:ss");
+            }
+            
+
         }
 
         /// <summary>
