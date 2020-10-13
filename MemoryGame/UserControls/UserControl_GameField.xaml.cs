@@ -216,7 +216,7 @@ namespace MemoryGame.UserControls
         private void CheckCardSimple(Image image, Card card)
         {
             //This method doesnt use the GetLastCard() method and saves space
-            if (lastCard != null)
+            if (lastCard != null && lastCard != card)
             {
                 if ((card.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
                 {
