@@ -156,15 +156,30 @@
     <Content Include="Background_Music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Harold\DoctorHarold.jpeg" />
-    <Resource Include="Harold\HandyManHarold.jpeg" />
-    <Resource Include="Harold\HaroldBuinissGuy.jpeg" />
-    <Resource Include="Harold\HaroldCards.jpeg" />
-    <Resource Include="Harold\HaroldPhone.jpg" />
-    <Resource Include="Harold\HaroldPsychoGamer.jpeg" />
-    <Resource Include="Harold\HaroldSimp.jpeg" />
-    <Resource Include="Harold\HaroldTable.png" />
-    <Resource Include="mempic2.png" />
+    <Resource Include="Harold\1.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\2.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\3.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\4.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\5.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\6.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\7.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Harold\8.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="mempic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

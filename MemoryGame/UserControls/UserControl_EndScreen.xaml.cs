@@ -26,6 +26,7 @@ namespace MemoryGame.UserControls
         {
             InitializeComponent();
             _game = game;
+            ShowScore(new string[] { game.Player1.Name, game.Player2.Name});
         }
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
