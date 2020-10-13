@@ -199,7 +199,7 @@ namespace MemoryGame.UserControls
         ///<summary>
         ///Score system with time and Mulitpliers
         ///by: Jur Stedehouder, Peter Jongman
-        ///Enhached by: Mark Hooijberg
+        ///Enhanced by: Mark Hooijberg
         ///</summary>        
         private int BaseScore = 100;
         //private int BaseScore2 = 100;
