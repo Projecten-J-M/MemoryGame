@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MemoryGame.UserControls
 {
@@ -34,6 +37,11 @@ namespace MemoryGame.UserControls
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
+        }
+
+        private void Highscore_List(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
