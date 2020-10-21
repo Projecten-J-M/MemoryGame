@@ -16,6 +16,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 
+
+
 namespace MemoryGame.UserControls
 {
     /// <summary>
@@ -26,6 +28,18 @@ namespace MemoryGame.UserControls
         public UserControl_Highscores()
         {
             InitializeComponent();
+
+
+            List<User> users = new List<User>();
+
+            User user = new User() { Name = "John Doe" };
+            users.Add(user);
+
+            user = new User() { Name = "Sammy Doe" };
+            users.Add(user);
+
+            Highscore.ItemsSource = users;
+
         }
 
         /// <summary>
@@ -39,9 +53,17 @@ namespace MemoryGame.UserControls
             Content = new UserControl_MainMenu();
         }
 
-        private void Highscore_List(object sender, SelectionChangedEventArgs e)
+        public class User
         {
 
+            public string Name { get; set; }
+
+            public DateTime Birthday { get; set; }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Highscore.ItemsSource = null;
         }
     }
 }
