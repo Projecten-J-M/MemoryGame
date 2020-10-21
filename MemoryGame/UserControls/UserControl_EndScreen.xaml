@@ -13,7 +13,6 @@
         <Label x:Name="lbl_tie_select" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,167,0,0" FontSize="20" Width="auto"/>
         <Button x:Name="btn_play_again" Content="Play Again" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="0,270,0,0" FontSize="20" Click="Btn_Play_Click"/>
         <Button x:Name="btn_main_menu" Content="Main Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="0,320,0,0" FontSize="20" Click="Btn_MainMenu_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="39" Margin="586,62,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="142"/>
-        
+
     </Grid>
 </UserControl>
