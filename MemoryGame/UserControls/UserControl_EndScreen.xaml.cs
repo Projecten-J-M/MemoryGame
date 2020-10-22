@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 using MemoryGame.Classes;
 
 namespace MemoryGame.UserControls
@@ -22,17 +23,20 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_EndScreen : UserControl
     {
-        private Game _game;
-        public UserControl_EndScreen(Game game)
+        private Game game;
+        public UserControl_EndScreen(Game _game)
         {
             InitializeComponent();
-            _game = game;
+            game = null;
+            game = _game;
             ShowScore(new string[] { game.Player1.Name, game.Player2.Name});
+            SaveScore();
         }
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
+            //TODO: zorg ervoor dat de zelfde instellingen (namen etc) worden geladen met een geresette score, thema, tijd etc.
         }
 
         private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
@@ -45,42 +49,78 @@ namespace MemoryGame.UserControls
         //Created by: Duncan Dreize
         private void ShowScore(string[] names)
         {
-            if (_game.Player1.Score > _game.Player2.Score)
+            if (game.Player1.Score > game.Player2.Score)
             {
-
-              
-                using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
-                {
-
-                    Writer.Write(names[0] + " ");
-                    Writer.Write(_game.Player1.Score);
-                    Writer.WriteLine();
-                    Writer.Flush();
-                }
-                lbl_winner_select.Content = names[0] + " has won with " + _game.Player1.Score + " points!";
-                lbl_loser_select.Content = names[1] + " has lost with " + _game.Player2.Score + "points!";
+                lbl_winner_select.Content = names[0] + " has won with " + game.Player1.Score + " points!";
+                lbl_loser_select.Content = names[1] + " has lost with " + game.Player2.Score + " points!";
             }
-            else if (_game.Player1.Score < _game.Player2.Score)
-            {
-                using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
-                {
-
-                    Writer.Write(names[1] + " ");
-                    Writer.Write(_game.Player2.Score);
-                    Writer.WriteLine();
-                    Writer.Flush();
-                }
-                lbl_winner_select.Content = names[1] + " has won with " + _game.Player2.Score + " points!";
-                lbl_loser_select.Content = names[0] + " has lost with " + _game.Player1.Score + "points!";
+            else if (game.Player1.Score < game.Player2.Score)
+            { 
+                lbl_winner_select.Content = names[1] + " has won with " + game.Player2.Score + " points!";
+                lbl_loser_select.Content = names[0] + " has lost with " + game.Player1.Score + " points!";
             }
-            else if (_game.Player1.Score == _game.Player2.Score) 
+            else if (game.Player1.Score == game.Player2.Score)
             {
-                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + _game.Player1.Score + " points!"; 
+                lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + game.Player1.Score + " points!";
             }
             else
             {
                 lbl_winner_select.Content = "Something went wrong!";
             }
+        }
+
+        /*
+         using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
+                {
+
+                    Writer.Write(names[1] + " ");
+                    Writer.Write(game.Player2.Score);
+                    Writer.WriteLine();
+                    Writer.Flush();
+                }
+
+                    using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
+                {
+
+                    Writer.Write(names[0] + " ");
+                    Writer.Write(game.Player1.Score);
+                    Writer.WriteLine();
+                    Writer.Flush();
+                }
+        */
+
+        private void SaveScore()
+        {
+            Player player = new Player();
+
+            if (game.Player1.Score > game.Player2.Score)
+                player = game.Player1;
+
+            else if (game.Player1.Score < game.Player2.Score)
+                player = game.Player2;
+
+            else if (game.Player1.Score == game.Player2.Score)
+            {
+                player.Name = $"{game.Player1.Name} en {game.Player2.Name}";
+                player.Score = game.Player1.Score;
+            }
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("game.sav");
+            XmlNode root = xmlDoc.DocumentElement;
+
+            XmlElement newHighscore = xmlDoc.CreateElement("player");
+            XmlElement name = xmlDoc.CreateElement("name");
+            name.InnerText = player.Name;
+            XmlElement score = xmlDoc.CreateElement("score");
+            score.InnerText = player.Score.ToString();
+
+            newHighscore.AppendChild(name);
+            newHighscore.AppendChild(score);
+
+            root.SelectSingleNode("//highscores").AppendChild(newHighscore);
+
+            xmlDoc.Save("game.sav");
         }
     }
     

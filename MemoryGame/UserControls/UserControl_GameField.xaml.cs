@@ -26,14 +26,19 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_GameField : UserControl
     {
+        private bool canClick = true;
+        private Card firstCard;
+        private Card lastCard;
         private Game game;
         private DispatcherTimer timer;
+        private DispatcherTimer viewCardTimer;
 
         public TimeSpan time;
 
         public UserControl_GameField(Game _game)
         {
             InitializeComponent();
+            game = null;
             game = _game;
 
             time = new TimeSpan(0, 0, 0);
@@ -41,12 +46,55 @@ namespace MemoryGame.UserControls
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1000); 
             timer.Tick += dtClockTime_Tick;
             timer.Start();
+
+            viewCardTimer = new DispatcherTimer();
+            viewCardTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            viewCardTimer.Tick += ViewCardTimer_Tick;
             
             lbl_player1Score.Content = game.Player1.Score;
             lbl_player2Score.Content = game.Player2.Score;
 
             SetActiveColors();
             //TODO: per player timer.s
+        }
+
+        private void ViewCardTimer_Tick(object sender, EventArgs e)
+        {
+            viewCardTimer.Stop();           
+
+            if ((firstCard.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
+            {
+                int AddedScore = 0;
+                if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 30)
+                    AddedScore -= 90;
+
+                else if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 10)
+                    AddedScore -= 50;
+
+                Player activePlayer = game.GetActivePlayer();
+                game.GetActivePlayer().Score += BaseScore + AddedScore;
+
+                if (activePlayer == game.Player1)
+                    lbl_player1Score.Content = activePlayer.Score;
+                else
+                    lbl_player2Score.Content = activePlayer.Score;
+
+                grd_cardGrid.Children.Remove(firstCard.Image);
+                grd_cardGrid.Children.Remove(lastCard.Image);
+
+                if (grd_cardGrid.Children.Count == 0)
+                    Content = new UserControl_EndScreen(game);
+            }
+            else
+            {
+                firstCard.Image.Source = firstCard.Back;
+                lastCard.Image.Source = lastCard.Back;
+            }
+            lastCard = null;
+            game.SwitchTurn();
+            SetActiveColors();
+            canClick = true;
+
         }
 
         #region UserControl Functions
@@ -60,6 +108,7 @@ namespace MemoryGame.UserControls
             {
                 // Pause timer etc.
                 timer.Stop();
+                viewCardTimer.Stop();
                 grd_pauseMenu.Visibility = Visibility.Visible;
             }
 
@@ -67,6 +116,8 @@ namespace MemoryGame.UserControls
             {
                 // Resume timer etc.
                 timer.Start();
+                if (lastCard != null & firstCard != null)
+                    viewCardTimer.Start();
                 grd_pauseMenu.Visibility = Visibility.Hidden;
             }
         }
@@ -146,11 +197,13 @@ namespace MemoryGame.UserControls
         }
         private void FillPlayField()
         {
+            Random randomNumberGenerator = new Random();
             List<ImageSource> images = GetImagesList();
             for (int row = 0; row < grd_cardGrid.RowDefinitions.Count; row++)
             {
                 for (int column = 0; column < grd_cardGrid.ColumnDefinitions.Count; column++)
                 {
+                    int randomNumber = randomNumberGenerator.Next(0, images.Count);
                     Image image = new Image() {
                         Stretch = Stretch.Fill,
                         Source = new BitmapImage(new Uri("\\mempic.png", UriKind.Relative)),
@@ -166,13 +219,13 @@ namespace MemoryGame.UserControls
                     {
                         Back = image.Source,
                         Column = column,
-                        Front = images.First(),
+                        Front = images[randomNumber],
                         Image = image,
                         IsTurned = false,
                         Row = row
                     };
                     
-                    images.RemoveAt(0);
+                    images.RemoveAt(randomNumber);
                     grd_cardGrid.Children.Add(image);
                     //TODO: dont add to card collection but add information to the card with the same row and column.
                     game.CardCollection.Add(card);
@@ -205,50 +258,25 @@ namespace MemoryGame.UserControls
         //private int BaseScore2 = 100;
         private void Card_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Image image = (Image)sender;
-            Card card = game.GetCard(image);
-            image.Source = card.Front;
+            if (canClick == true)
+            {
+                Image image = (Image)sender;
+                firstCard = game.GetCard(image);
+                image.Source = firstCard.Front;
 
-            //CheckCard(image, card);
-            CheckCardSimple(image, card);
+                //CheckCard(image, card);
+                CheckCardSimple(image, firstCard);
+            }
         }
-        private Card lastCard;
+
         private void CheckCardSimple(Image image, Card card)
         {
             //This method doesnt use the GetLastCard() method and saves space
             if (lastCard != null && lastCard != card)
             {
-                if ((card.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
-                {
-                    int AddedScore = 0;
-                    if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 30)
-                        AddedScore -= 90;
-
-                    else if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 10)
-                        AddedScore -= 50;
-
-                    Player activePlayer = game.GetActivePlayer();
-                    game.GetActivePlayer().Score += BaseScore + AddedScore;
-
-                    if (activePlayer == game.Player1)
-                        lbl_player1Score.Content = activePlayer.Score;
-                    else
-                        lbl_player2Score.Content = activePlayer.Score;
-
-                    grd_cardGrid.Children.Remove(image);
-                    grd_cardGrid.Children.Remove(lastCard.Image);
-
-                    if (grd_cardGrid.Children.Count == 0)
-                        Content = new UserControl_EndScreen(game);
-                }
-                else
-                {
-                    image.Source = card.Back;
-                    lastCard.Image.Source = lastCard.Back;
-                }
-                lastCard = null;
-                game.SwitchTurn();
-                SetActiveColors();
+                canClick = false;
+                viewCardTimer.Start();
+                
             }
             else
                 lastCard = card;
