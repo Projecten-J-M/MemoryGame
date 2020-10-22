@@ -156,6 +156,7 @@
     <Content Include="Background_Music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="bin\Debug\HighScores.txt" />
     <Resource Include="Harold\8.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

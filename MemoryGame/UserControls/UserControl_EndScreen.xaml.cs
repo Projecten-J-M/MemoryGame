@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,15 +40,36 @@ namespace MemoryGame.UserControls
             Content = new UserControl_MainMenu();
         }
 
+        //Writes the winning player's score on a text file so it can be used for showing the Highscores. 
+        //Also shows the players at the end who won and with which amount of points.
+        //Created by: Duncan Dreize
         private void ShowScore(string[] names)
         {
             if (_game.Player1.Score > _game.Player2.Score)
             {
+
+              
+                using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
+                {
+
+                    Writer.Write(names[0] + " ");
+                    Writer.Write(_game.Player1.Score);
+                    Writer.WriteLine();
+                    Writer.Flush();
+                }
                 lbl_winner_select.Content = names[0] + " has won with " + _game.Player1.Score + " points!";
                 lbl_loser_select.Content = names[1] + " has lost with " + _game.Player2.Score + "points!";
             }
             else if (_game.Player1.Score < _game.Player2.Score)
             {
+                using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
+                {
+
+                    Writer.Write(names[1] + " ");
+                    Writer.Write(_game.Player2.Score);
+                    Writer.WriteLine();
+                    Writer.Flush();
+                }
                 lbl_winner_select.Content = names[1] + " has won with " + _game.Player2.Score + " points!";
                 lbl_loser_select.Content = names[0] + " has lost with " + _game.Player1.Score + "points!";
             }
