@@ -18,7 +18,7 @@
                 <DataGridTextColumn x:Name="hdr_time" Header="Time" TextBlock.TextAlignment="Center"/>
             </DataGrid.Columns>-->
         </DataGrid>
-        <Button Content="Save" HorizontalAlignment="Left" Height="28" Margin="250,340,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Content="Reset" HorizontalAlignment="right" Height="28" Margin="0,340,250,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
+        <Button Content="Save" HorizontalAlignment="Center" Height="28" Margin="0,340,250,0" VerticalAlignment="Top" Width="80"/>
+        <Button Content="Reset" HorizontalAlignment="Center" Height="28" Margin="250,340,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
     </Grid>
 </UserControl>
