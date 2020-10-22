@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("background_music.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("background%20music.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/background%20music.mp3")]
 
 
