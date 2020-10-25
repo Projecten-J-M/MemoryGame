@@ -190,7 +190,7 @@ namespace MemoryGame.UserControls
             for (int i = 0; i < cardAmount; i++)
             {
                 int imageNr = i % (cardAmount / 2);
-                ImageSource source = new BitmapImage(new Uri(files[imageNr]));
+                ImageSource source = new BitmapImage(new Uri(currentDirectory + "\\\\").MakeRelativeUri(new Uri(files[imageNr])));
                 images.Add(source);
             }
             return images;
@@ -352,6 +352,7 @@ namespace MemoryGame.UserControls
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
             // TO DO: Put code to save game here.
+            game.Save();
             Content = new UserControl_MainMenu();
         }
 

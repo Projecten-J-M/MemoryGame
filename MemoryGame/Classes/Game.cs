@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Xml;
 
 namespace MemoryGame.Classes
 {
@@ -74,6 +76,77 @@ namespace MemoryGame.Classes
         {
             List<Card> cards = CardCollection.Where(x => x.AtMove != null).OrderBy(x => x.AtMove).ToList();
             return cards[cards.Count() - 2];
+        }
+
+        public void Save()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("game.sav");
+
+            // Get root node for saving the game.
+            XmlNode savedGame = xmlDoc.DocumentElement.GetElementsByTagName("savedgame")[0];
+
+            // Get all nodes
+            XmlNode height = savedGame.SelectSingleNode("//config/height");
+            XmlNode width = savedGame.SelectSingleNode("//config/width");
+            XmlNode cardCollection = savedGame.SelectSingleNode("//cardcollection");
+            XmlNode player1 = savedGame.SelectSingleNode("//player1");
+            XmlNode player2 = savedGame.SelectSingleNode("//player2");
+            XmlNode round = savedGame.SelectSingleNode("//round");
+            XmlNode turn = savedGame.SelectSingleNode("//turn");
+
+            // Clear previous cards
+            cardCollection.InnerText = null;
+
+            height.InnerText = Config.FieldHeight.ToString();
+            width.InnerText = Config.FieldWidth.ToString();
+            round.InnerText = Round.ToString();
+            turn.InnerText = Turn.ToString();
+
+            player1.SelectSingleNode("name").InnerText = Player1.Name;
+            player1.SelectSingleNode("score").InnerText = Player1.Score.ToString();
+            player1.SelectSingleNode("time").InnerText = Player1.Time.ToString();
+
+            player2.SelectSingleNode("name").InnerText = Player2.Name;
+            player2.SelectSingleNode("score").InnerText = Player2.Score.ToString();
+            player2.SelectSingleNode("time").InnerText = Player2.Time.ToString();
+
+            List<XmlNode> cards = new List<XmlNode>();
+
+            foreach (Card card in CardCollection)
+            {
+                XmlNode cardNode = xmlDoc.CreateNode(XmlNodeType.Element, "card", null);
+
+                List<XmlNode> cardChildNodes = new List<XmlNode>();
+
+                XmlNode atMove = xmlDoc.CreateNode(XmlNodeType.Element, "atmove", null);
+                XmlNode back = xmlDoc.CreateNode(XmlNodeType.Element, "back", null);
+                XmlNode column = xmlDoc.CreateNode(XmlNodeType.Element, "column", null);
+                XmlNode front = xmlDoc.CreateNode(XmlNodeType.Element, "front", null);
+                XmlNode isTurned = xmlDoc.CreateNode(XmlNodeType.Element, "isturned", null);
+                XmlNode row = xmlDoc.CreateNode(XmlNodeType.Element, "row", null);
+                
+                cardChildNodes.Add(atMove);
+                cardChildNodes.Add(back);
+                cardChildNodes.Add(column);
+                cardChildNodes.Add(front);
+                cardChildNodes.Add(isTurned);
+                cardChildNodes.Add(row);
+
+                atMove.InnerText = card.AtMove.ToString();
+                back.InnerText = (card.Back as BitmapImage).UriSource.OriginalString;
+                column.InnerText = card.Column.ToString();
+                front.InnerText = (card.Front as BitmapImage).UriSource.OriginalString;
+                isTurned.InnerText = card.IsTurned.ToString();
+                row.InnerText = card.Row.ToString();
+
+                foreach (XmlNode cardChild in cardChildNodes)
+                    cardNode.AppendChild(cardChild);
+
+                cardCollection.AppendChild(cardNode);
+            }
+
+            xmlDoc.Save("game.sav");
         }
 
         public void SwitchTurn()

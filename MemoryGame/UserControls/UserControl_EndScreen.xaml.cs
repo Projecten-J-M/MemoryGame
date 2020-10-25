@@ -69,26 +69,6 @@ namespace MemoryGame.UserControls
             }
         }
 
-        /*
-         using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
-                {
-
-                    Writer.Write(names[1] + " ");
-                    Writer.Write(game.Player2.Score);
-                    Writer.WriteLine();
-                    Writer.Flush();
-                }
-
-                    using (StreamWriter Writer = File.AppendText(@"HighScores.txt"))
-                {
-
-                    Writer.Write(names[0] + " ");
-                    Writer.Write(game.Player1.Score);
-                    Writer.WriteLine();
-                    Writer.Flush();
-                }
-        */
-
         private void SaveScore()
         {
             Player player = new Player();
