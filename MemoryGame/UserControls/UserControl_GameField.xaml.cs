@@ -50,12 +50,11 @@ namespace MemoryGame.UserControls
             viewCardTimer = new DispatcherTimer();
             viewCardTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             viewCardTimer.Tick += ViewCardTimer_Tick;
-            
-            lbl_player1Score.Content = game.Player1.Score;
-            lbl_player2Score.Content = game.Player2.Score;
+
+
 
             SetActiveColors();
-            //TODO: per player timer.s
+            //TODO: per player timers
         }
 
         private void ViewCardTimer_Tick(object sender, EventArgs e)
@@ -190,6 +189,7 @@ namespace MemoryGame.UserControls
             for (int i = 0; i < cardAmount; i++)
             {
                 int imageNr = i % (cardAmount / 2);
+                //TODO: correct which directory its using, currently the wrong harold map.
                 ImageSource source = new BitmapImage(new Uri(currentDirectory + "\\\\").MakeRelativeUri(new Uri(files[imageNr])));
                 images.Add(source);
             }
@@ -197,38 +197,63 @@ namespace MemoryGame.UserControls
         }
         private void FillPlayField()
         {
-            Random randomNumberGenerator = new Random();
-            List<ImageSource> images = GetImagesList();
-            for (int row = 0; row < grd_cardGrid.RowDefinitions.Count; row++)
+            if (game.CardCollection.Count == 0)
             {
-                for (int column = 0; column < grd_cardGrid.ColumnDefinitions.Count; column++)
+                Random randomNumberGenerator = new Random();
+                List<ImageSource> images = GetImagesList();
+
+                for (int row = 0; row < grd_cardGrid.RowDefinitions.Count; row++)
                 {
-                    int randomNumber = randomNumberGenerator.Next(0, images.Count);
-                    Image image = new Image() {
+                    for (int column = 0; column < grd_cardGrid.ColumnDefinitions.Count; column++)
+                    {
+                        int randomNumber = randomNumberGenerator.Next(0, images.Count);
+                        Image image = new Image()
+                        {
+                            Stretch = Stretch.Fill,
+                            Source = new BitmapImage(new Uri("\\mempic.png", UriKind.Relative)),
+                            Tag = new int[] { row, column }
+                        };
+
+                        Grid.SetRow(image, row);
+                        Grid.SetColumn(image, column);
+
+                        image.MouseDown += Card_MouseDown;
+
+                        Card card = new Card()
+                        {
+                            Back = image.Source,
+                            Column = column,
+                            Front = images[randomNumber],
+                            Image = image,
+                            IsTurned = false,
+                            Row = row
+                        };
+
+                        images.RemoveAt(randomNumber);
+                        grd_cardGrid.Children.Add(image);
+                        //TODO: dont add to card collection but add information to the card with the same row and column.
+                        game.CardCollection.Add(card);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Card card in game.CardCollection)
+                {
+                    Image image = new Image()
+                    {
                         Stretch = Stretch.Fill,
-                        Source = new BitmapImage(new Uri("\\mempic.png", UriKind.Relative)),
-                        Tag = new int[] { row, column }
+                        Source = card.Back,
+                        Tag = new int[] { card.Row, card.Column }
                     };
 
-                    Grid.SetRow(image, row);
-                    Grid.SetColumn(image, column);
+                    Grid.SetRow(image, card.Row);
+                    Grid.SetColumn(image, card.Column);
 
                     image.MouseDown += Card_MouseDown;
 
-                    Card card = new Card()
-                    {
-                        Back = image.Source,
-                        Column = column,
-                        Front = images[randomNumber],
-                        Image = image,
-                        IsTurned = false,
-                        Row = row
-                    };
-                    
-                    images.RemoveAt(randomNumber);
+                    card.Image = image;
                     grd_cardGrid.Children.Add(image);
-                    //TODO: dont add to card collection but add information to the card with the same row and column.
-                    game.CardCollection.Add(card);
                 }
             }
         }
@@ -246,7 +271,14 @@ namespace MemoryGame.UserControls
 
             SetupPlayfield(game.Config.FieldHeight, game.Config.FieldWidth);
             FillPlayField();
+
             SetNames(new string[] { game.Player1.Name, game.Player2.Name});
+
+            lbl_player1Score.Content = game.Player1.Score;
+            lbl_player1Time.Content = game.Player1.Time.Duration().ToString(@"mm\:ss");
+
+            lbl_player2Score.Content = game.Player2.Score;
+            lbl_player2Time.Content = game.Player2.Time.Duration().ToString(@"mm\:ss");
         }
 
         ///<summary>

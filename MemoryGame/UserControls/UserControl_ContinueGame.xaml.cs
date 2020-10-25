@@ -48,6 +48,8 @@ namespace MemoryGame.UserControls
         {
             //TODO: Continue game, load saved file, fill game object.
             Game game = new Game(new GameConfig());
+            game.LoadGameFromFile();
+
             Content = new UserControl_GameField(game);
         }
 

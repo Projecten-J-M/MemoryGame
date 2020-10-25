@@ -192,12 +192,12 @@
       </card>
     </cardcollection>
     <player1>
-      <name>Name</name>
+      <name>Kees</name>
       <score>100</score>
       <time>00:00:03</time>
     </player1>
     <player2>
-      <name>Name</name>
+      <name>Jan</name>
       <score>200</score>
       <time>00:00:04</time>
     </player2>

@@ -78,6 +78,52 @@ namespace MemoryGame.Classes
             return cards[cards.Count() - 2];
         }
 
+        public void LoadGameFromFile()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("game.sav");
+
+            // Get root node for saving the game.
+            XmlNode savedGame = xmlDoc.DocumentElement.GetElementsByTagName("savedgame")[0];
+
+            // Get all nodes
+            XmlNode height = savedGame.SelectSingleNode("//config/height");
+            XmlNode width = savedGame.SelectSingleNode("//config/width");
+            XmlNode cardCollection = savedGame.SelectSingleNode("//savedgame/cardcollection");
+            XmlNode player1 = savedGame.SelectSingleNode("//savedgame/player1");
+            XmlNode player2 = savedGame.SelectSingleNode("//savedgame/player2");
+            XmlNode round = savedGame.SelectSingleNode("//savedgame/round");
+            XmlNode turn = savedGame.SelectSingleNode("//savedgame/turn");
+
+            Config.FieldHeight = Convert.ToInt32(height.InnerText);
+            Config.FieldWidth = Convert.ToInt32(width.InnerText);
+            Round = Convert.ToInt32(round.InnerText);
+            Turn = turn.InnerText == "Player1" ? PlayerTurn.Player1 : PlayerTurn.Player2;
+
+            Player1.Name = player1.SelectSingleNode("//savedgame/player1/name").InnerText;
+            Player1.Score = Convert.ToInt32(player1.SelectSingleNode("//savedgame/player1/score").InnerText);
+            string[] time = player1.SelectSingleNode("//savedgame/player1/time").InnerText.Split(':');
+            Player1.Time = new TimeSpan(Convert.ToInt16(time[0]), Convert.ToInt16(time[1]), Convert.ToInt16(time[2]));
+
+            Player2.Name = player2.SelectSingleNode("//savedgame/player2/name").InnerText;
+            Player2.Score = Convert.ToInt32(player2.SelectSingleNode("//savedgame/player2/score").InnerText);
+            time = player2.SelectSingleNode("//savedgame/player2/time").InnerText.Split(':');
+            Player2.Time = new TimeSpan(Convert.ToInt16(time[0]), Convert.ToInt16(time[1]), Convert.ToInt16(time[2]));
+
+            foreach (XmlNode node in xmlDoc.SelectNodes("//cardcollection/card"))
+            {
+                Card card = new Card();
+                card.AtMove = String.IsNullOrWhiteSpace(node["atmove"].InnerText) ? (int?) null : Convert.ToInt32(node.SelectSingleNode("//atmove").InnerText);
+                card.Back = new BitmapImage(new Uri(node["back"].InnerText, UriKind.Relative));
+                card.Column = Convert.ToInt16(node["column"].InnerText);
+                card.Front = new BitmapImage(new Uri(node["front"].InnerText, UriKind.Relative));
+                card.IsTurned = Convert.ToBoolean(node["isturned"].InnerText);
+                card.Row = Convert.ToInt16(node["row"].InnerText);
+
+                CardCollection.Add(card);
+            }
+        }
+
         public void Save()
         {
             XmlDocument xmlDoc = new XmlDocument();
