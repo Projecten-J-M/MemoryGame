@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<memorygame>
+  <options>
+  </options>
+  <highscores>
+    <player>
+      <name>Speler 2</name>
+      <score>700</score>
+    </player>
+    <player>
+      <name>Speler 3</name>
+      <score>360</score>
+    </player>
+    <player>
+      <name>Speler 2</name>
+      <score>700</score>
+    </player>
+    <player>
+      <name>Speler 3</name>
+      <score>360</score>
+    </player>
+    <player>
+      <name>Speler 5 en Speler 6</name>
+      <score>100</score>
+    </player>
+    <player>
+      <name>Name en Name</name>
+      <score>400</score>
+    </player>
+    <player>
+      <name>Anna</name>
+      <score>450</score>
+    </player>
+    <player>
+      <name>Name</name>
+      <score>550</score>
+    </player>
+    <player>
+      <name>Name</name>
+      <score>400</score>
+    </player>
+  </highscores>
+  
+  <savedgame>
+    <config>
+      <height></height>
+      <width></width>
+    </config>
+    <cardcollection>
+      
+    </cardcollection>
+    <player1>
+      <name></name>
+      <score></score>
+      <time></time>
+    </player1>
+    <player2>
+      <name></name>
+      <score></score>
+      <time></time>
+    </player2>
+    <round></round>
+    <turn></turn>
+  </savedgame>
+</memorygame>
