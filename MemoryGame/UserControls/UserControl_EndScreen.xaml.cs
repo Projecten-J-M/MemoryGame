@@ -81,7 +81,7 @@ namespace MemoryGame.UserControls
 
             else if (game.Player1.Score == game.Player2.Score)
             {
-                player.Name = $"{game.Player1.Name} en {game.Player2.Name}";
+                player.Name = $"{game.Player1.Name} and {game.Player2.Name}";
                 player.Score = game.Player1.Score;
             }
 
@@ -101,6 +101,7 @@ namespace MemoryGame.UserControls
             root.SelectSingleNode("//highscores").AppendChild(newHighscore);
 
             xmlDoc.Save("game.sav");
+
         }
     }
     

@@ -3,42 +3,6 @@
   <options>
   </options>
   <highscores>
-    <player>
-      <name>Speler 2</name>
-      <score>700</score>
-    </player>
-    <player>
-      <name>Speler 3</name>
-      <score>360</score>
-    </player>
-    <player>
-      <name>Speler 2</name>
-      <score>700</score>
-    </player>
-    <player>
-      <name>Speler 3</name>
-      <score>360</score>
-    </player>
-    <player>
-      <name>Speler 5 en Speler 6</name>
-      <score>100</score>
-    </player>
-    <player>
-      <name>Name en Name</name>
-      <score>400</score>
-    </player>
-    <player>
-      <name>Anna</name>
-      <score>450</score>
-    </player>
-    <player>
-      <name>Name</name>
-      <score>550</score>
-    </player>
-    <player>
-      <name>Name</name>
-      <score>400</score>
-    </player>
   </highscores>
   <savedgame>
     <config>
@@ -51,7 +15,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>0</column>
-        <front>../Harold/3.jpeg</front>
+        <front>../Harold/7.jpeg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -60,7 +24,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>1</column>
-        <front>../Harold/8.jpeg</front>
+        <front>../Harold/4.jpeg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -78,7 +42,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>3</column>
-        <front>../Harold/2.jpeg</front>
+        <front>../Harold/6.jpeg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -87,72 +51,36 @@
         </atmove>
         <back>\mempic.png</back>
         <column>0</column>
-        <front>../Harold/7.jpeg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>1</column>
-        <front>../Harold/5.jpeg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>2</column>
-        <front>../Harold/7.jpeg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>3</column>
-        <front>../Harold/1.jpeg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>0</column>
-        <front>../Harold/5.jpeg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>1</column>
-        <front>../Harold/6.jpeg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>2</column>
-        <front>../Harold/4.jpeg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>3</column>
         <front>../Harold/2.jpeg</front>
         <isturned>False</isturned>
-        <row>2</row>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>1</column>
+        <front>../Harold/2.jpeg</front>
+        <isturned>False</isturned>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>2</column>
+        <front>../Harold/3.jpeg</front>
+        <isturned>False</isturned>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>3</column>
+        <front>../Harold/3.jpeg</front>
+        <isturned>False</isturned>
+        <row>1</row>
       </card>
       <card>
         <atmove>
@@ -161,14 +89,41 @@
         <column>0</column>
         <front>../Harold/8.jpeg</front>
         <isturned>False</isturned>
-        <row>3</row>
+        <row>2</row>
       </card>
       <card>
         <atmove>
         </atmove>
         <back>\mempic.png</back>
         <column>1</column>
-        <front>../Harold/3.jpeg</front>
+        <front>../Harold/7.jpeg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>2</column>
+        <front>../Harold/6.jpeg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>3</column>
+        <front>../Harold/5.jpeg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>0</column>
+        <front>../Harold/5.jpeg</front>
         <isturned>False</isturned>
         <row>3</row>
       </card>
@@ -176,7 +131,7 @@
         <atmove>
         </atmove>
         <back>\mempic.png</back>
-        <column>2</column>
+        <column>1</column>
         <front>../Harold/4.jpeg</front>
         <isturned>False</isturned>
         <row>3</row>
@@ -185,23 +140,32 @@
         <atmove>
         </atmove>
         <back>\mempic.png</back>
+        <column>2</column>
+        <front>../Harold/8.jpeg</front>
+        <isturned>False</isturned>
+        <row>3</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
         <column>3</column>
-        <front>../Harold/6.jpeg</front>
+        <front>../Harold/1.jpeg</front>
         <isturned>False</isturned>
         <row>3</row>
       </card>
     </cardcollection>
     <player1>
-      <name>Kees</name>
+      <name>Name</name>
       <score>100</score>
-      <time>00:00:03</time>
+      <time>00:00:07</time>
     </player1>
     <player2>
-      <name>Jan</name>
-      <score>200</score>
-      <time>00:00:04</time>
+      <name>Name</name>
+      <score>100</score>
+      <time>00:00:05</time>
     </player2>
-    <round>4</round>
-    <turn>Player1</turn>
+    <round>3</round>
+    <turn>Player2</turn>
   </savedgame>
 </memorygame>
