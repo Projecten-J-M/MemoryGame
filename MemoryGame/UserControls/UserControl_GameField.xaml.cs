@@ -54,7 +54,6 @@ namespace MemoryGame.UserControls
 
 
             SetActiveColors();
-            //TODO: per player timers
         }
 
         private void ViewCardTimer_Tick(object sender, EventArgs e)

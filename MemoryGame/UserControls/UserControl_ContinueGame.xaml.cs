@@ -46,7 +46,6 @@ namespace MemoryGame.UserControls
         /// <param name="e"></param>
         private void Btn_continue_click(object sender, RoutedEventArgs e)
         {
-            //TODO: Continue game, load saved file, fill game object.
             Game game = new Game(new GameConfig());
             game.LoadGameFromFile();
 

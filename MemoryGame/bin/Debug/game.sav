@@ -193,15 +193,15 @@
     </cardcollection>
     <player1>
       <name>Kees</name>
-      <score>100</score>
-      <time>00:00:03</time>
+      <score>200</score>
+      <time>00:00:07</time>
     </player1>
     <player2>
       <name>Jan</name>
       <score>200</score>
-      <time>00:00:04</time>
+      <time>00:00:07</time>
     </player2>
-    <round>4</round>
+    <round>6</round>
     <turn>Player1</turn>
   </savedgame>
 </memorygame>
