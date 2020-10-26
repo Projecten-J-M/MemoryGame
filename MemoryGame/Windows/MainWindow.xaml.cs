@@ -32,7 +32,7 @@ namespace MemoryGame
             mediaPlayer = new MediaPlayer();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             SetBackgroundVolume(mediaPlayer_Volume);
-            mediaPlayer.Open(new Uri("Background_Music.wav", UriKind.Relative));
+            mediaPlayer.Open(new Uri("Background music.mp3", UriKind.Relative));
             mediaPlayer.Play();
         }
 

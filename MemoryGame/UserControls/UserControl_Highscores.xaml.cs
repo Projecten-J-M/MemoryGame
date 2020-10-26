@@ -30,15 +30,23 @@ namespace MemoryGame.UserControls
             InitializeComponent();
 
 
-            List<User> users = new List<User>();
+            List<Info_player> Info = new List<Info_player>();
+            Info.Add(new Info_player()
+            {
+                Name = "Bob",
+                Score = 101,
+                Time = 50,
+            });
 
-            User user = new User() { Name = "John Doe" };
-            users.Add(user);
+            Info.Add(new Info_player()
+            {
+                Name = "Frank",
+                Score = 90,
+                Time = 70,
+            });
 
-            user = new User() { Name = "Sammy Doe" };
-            users.Add(user);
+            Highscore.ItemsSource = Info;
 
-            Highscore.ItemsSource = users;
 
         }
 
@@ -53,17 +61,24 @@ namespace MemoryGame.UserControls
             Content = new UserControl_MainMenu();
         }
 
-        public class User
+        public class Info_player
         {
 
             public string Name { get; set; }
 
-            public DateTime Birthday { get; set; }
+            public int Score { get; set; }
+
+            public int Time { get; set; }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Highscore.ItemsSource = null;
+        }
+
+        private void Highscore_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
