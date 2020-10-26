@@ -98,23 +98,7 @@ namespace MemoryGame.UserControls
 
             public int Time { get; set; }
         }
-
-        /// <summary>
-        /// Resets the highscore list and reloads it 
-        /// Made by: Duncan Dreize & Mark Hooijberg
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("game.sav");
-            xmlDoc.SelectSingleNode("//highscores").InnerText = null;
-
-
-            xmlDoc.Save("game.sav");
-            LoadHighScores();
-        }
+        
 
         private void Highscore_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MemoryGame;
+using System.Xml;
 
 namespace MemoryGame.UserControls
 {
@@ -66,6 +67,22 @@ namespace MemoryGame.UserControls
         {
             Window creditsWindow = new Windows.CreditsWindow();
             creditsWindow.ShowDialog();
+        }
+
+        /// <summary>
+        /// Resets the highscore list
+        /// Made by: Duncan Dreize & Mark Hooijberg
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_reset_Click(object sender, RoutedEventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("game.sav");
+            xmlDoc.SelectSingleNode("//highscores").InnerText = null;
+            lbl_reset.Visibility = Visibility.Visible;
+
+            xmlDoc.Save("game.sav");
         }
     }
 }

@@ -10,6 +10,5 @@
         <Label Content="Player Highscores:" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Back_Click"/>
         <DataGrid x:Name="Highscore" HorizontalAlignment="Center" Height="185" Margin="0,115,0,0" VerticalAlignment="Top" Width="400"  AutoGenerateColumns="True" ColumnWidth="*"></DataGrid>
-        <Button Content="Reset" HorizontalAlignment="Center" Height="28" Margin="250,340,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
     </Grid>
 </UserControl>
