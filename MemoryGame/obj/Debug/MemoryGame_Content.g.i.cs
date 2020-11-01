@@ -10,5 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("background%20music.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/background%20music.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/suske%20en%20wiske/suske%20en%20wiske%20background%20music.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("suske%20en%20wiske%20thema/suske%20en%20wiske%20background%20music.mp3")]
 
 

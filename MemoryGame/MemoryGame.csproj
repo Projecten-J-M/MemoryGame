@@ -156,6 +156,26 @@
   <ItemGroup>
     <Content Include="Background music.mp3" />
     <Content Include="bin\Debug\Background music.mp3" />
+    <Content Include="bin\Debug\Suske en Wiske\Suske En Wiske Background music.mp3" />
+    <Content Include="Suske en Wiske Thema\Suske En Wiske Background music.mp3" />
+    <Resource Include="Suske en Wiske Thema\1.jpg" />
+    <Resource Include="Suske en Wiske Thema\2.jpg" />
+    <Resource Include="Suske en Wiske Thema\3.jpg" />
+    <Resource Include="Suske en Wiske Thema\4.jpg" />
+    <Resource Include="Suske en Wiske Thema\5.jpg" />
+    <Resource Include="Suske en Wiske Thema\6.jpg" />
+    <Resource Include="Suske en Wiske Thema\7.jpg" />
+    <Resource Include="Suske en Wiske Thema\8.jpg" />
+    <Resource Include="Suske en Wiske Thema\9.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\1.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\2.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\3.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\4.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\5.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\6.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\7.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\8.jpg" />
+    <Resource Include="bin\Debug\Suske en Wiske\9.jpg" />
     <Resource Include="Harold\8.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -206,5 +226,6 @@
     </Resource>
     <Resource Include="mempic.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
