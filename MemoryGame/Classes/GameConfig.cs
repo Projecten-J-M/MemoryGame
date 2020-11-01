@@ -14,5 +14,6 @@ namespace MemoryGame.Classes
         public String PlayerName2 { get; set; }
         public int startScore { get; set; }
         public Game.PlayerTurn StartPlayer { get; set; }
+        public string Thema { get; set; }
     }
 }

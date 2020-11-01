@@ -43,6 +43,7 @@ namespace MemoryGame.Classes
         public Player Player2 { get; set; }
         public int Round { get; set; }
         public PlayerTurn Turn { get; set; }
+        public string Thema { get; set; }
         public enum PlayerTurn { Player1, Player2 }
 
         public Game(GameConfig config)
@@ -51,6 +52,7 @@ namespace MemoryGame.Classes
             CardCollection = new List<Card>();
             Player1 = new Player() { Name = config.PlayerName1, Score = config.startScore, Time = new TimeSpan(0, 0, 0) };
             Player2 = new Player() { Name = config.PlayerName2, Score = config.startScore, Time = new TimeSpan(0, 0, 0) };
+            Thema = config.Thema;
             Turn = config.StartPlayer;
             Round = 0;
         }
@@ -116,7 +118,7 @@ namespace MemoryGame.Classes
                 card.AtMove = String.IsNullOrWhiteSpace(node["atmove"].InnerText) ? (int?) null : Convert.ToInt32(node.SelectSingleNode("//atmove").InnerText);
                 card.Back = new BitmapImage(new Uri(node["back"].InnerText, UriKind.Relative));
                 card.Column = Convert.ToInt16(node["column"].InnerText);
-                card.Front = new BitmapImage(new Uri(node["front"].InnerText, UriKind.Relative));
+                card.Front = new BitmapImage(new Uri(node["front"].InnerText, UriKind.Absolute));
                 card.IsTurned = Convert.ToBoolean(node["isturned"].InnerText);
                 card.Row = Convert.ToInt16(node["row"].InnerText);
 

@@ -155,8 +155,45 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background music.mp3" />
-    <Content Include="bin\Debug\Background music.mp3" />
-    <Content Include="bin\Debug\Suske en Wiske\Suske En Wiske Background music.mp3" />
+    <Content Include="bin\Debug\DeKillerMusic.mp3" />
+    <Resource Include="bin\Debug\DeKiller\120730.jpg" />
+    <Resource Include="bin\Debug\DeKiller\120732.jpg" />
+    <Resource Include="bin\Debug\DeKiller\120734.jpg" />
+    <Resource Include="bin\Debug\DeKiller\120740.jpg" />
+    <Resource Include="bin\Debug\DeKiller\120742.jpg" />
+    <Resource Include="bin\Debug\DeKiller\120744.jpg" />
+    <Resource Include="bin\Debug\DeKiller\151926.jpg" />
+    <Resource Include="bin\Debug\DeKiller\155678.jpg" />
+    <Resource Include="bin\Debug\DeKiller\171956.jpg" />
+    <Resource Include="bin\Debug\DeKiller\176054.jpg" />
+    <Resource Include="bin\Debug\DeKiller\184704.jpg" />
+    <Resource Include="bin\Debug\DeKiller\342755.jpg" />
+    <Resource Include="bin\Debug\DeKiller\354011.jpg" />
+    <Resource Include="bin\Debug\DeKiller\372565.jpg" />
+    <Resource Include="bin\Debug\DeKiller\415588.jpg" />
+    <Resource Include="bin\Debug\DeKiller\47418.jpg" />
+    <Resource Include="bin\Debug\DeKiller\70957.jpg" />
+    <Resource Include="bin\Debug\DeKiller\90314.jpg" />
+    <Content Include="bin\Debug\MenuMusic.mp3" />
+    <Content Include="bin\Debug\SuskeEnWiskeMusic.mp3" />
+    <Resource Include="bin\Debug\SuskeEnWiske\120014.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\12997.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\12998.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\136219.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\174859.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\207630.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\268309.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\288186.png" />
+    <Resource Include="bin\Debug\SuskeEnWiske\310886.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\327448.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\341751.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\342450.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\344171.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\346078.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\346080.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\354898.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\4253.jpg" />
+    <Resource Include="bin\Debug\SuskeEnWiske\72646.jpg" />
     <Content Include="Suske en Wiske Thema\Suske En Wiske Background music.mp3" />
     <Resource Include="Suske en Wiske Thema\1.jpg" />
     <Resource Include="Suske en Wiske Thema\2.jpg" />
@@ -167,15 +204,6 @@
     <Resource Include="Suske en Wiske Thema\7.jpg" />
     <Resource Include="Suske en Wiske Thema\8.jpg" />
     <Resource Include="Suske en Wiske Thema\9.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\1.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\2.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\3.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\4.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\5.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\6.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\7.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\8.jpg" />
-    <Resource Include="bin\Debug\Suske en Wiske\9.jpg" />
     <Resource Include="Harold\8.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -198,30 +226,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Harold\1.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\1.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\2.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\3.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\4.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\5.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\6.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\7.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\Harold\8.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="mempic.png" />

@@ -42,7 +42,16 @@ namespace MemoryGame.UserControls
         /// </summary>
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)
         {
-            Game game = new Game(new GameConfig() { FieldHeight = 4, FieldWidth = 4, PlayerName1 = tbx_player1.Text, PlayerName2 = tbx_player2.Text, startScore = 100, StartPlayer = Game.PlayerTurn.Player1});
+            Game game = new Game(new GameConfig()
+            {
+                FieldHeight = 4,
+                FieldWidth = 4,
+                PlayerName1 = tbx_player1.Text,
+                PlayerName2 = tbx_player2.Text,
+                startScore = 100,
+                StartPlayer = Game.PlayerTurn.Player1,
+                Thema = (string) cbbx_thema.SelectedItem
+            });
             Content = new UserControl_GameField(game);
         }
     }

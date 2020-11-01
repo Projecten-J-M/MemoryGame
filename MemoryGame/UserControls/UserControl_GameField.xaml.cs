@@ -182,14 +182,14 @@ namespace MemoryGame.UserControls
             int cardAmount = game.Config.FieldHeight * game.Config.FieldWidth;
             string currentDirectory = Directory.GetCurrentDirectory();
 
-            string[] files = Directory.GetFiles(currentDirectory + "\\Harold");
+            string[] files = Directory.GetFiles(currentDirectory + "\\" + game.Thema);
             List<ImageSource> images = new List<ImageSource>();
 
             for (int i = 0; i < cardAmount; i++)
             {
                 int imageNr = i % (cardAmount / 2);
                 //TODO: correct which directory its using, currently the wrong harold map.
-                ImageSource source = new BitmapImage(new Uri(currentDirectory + "\\\\").MakeRelativeUri(new Uri(files[imageNr])));
+                ImageSource source = new BitmapImage(new Uri(files[imageNr], UriKind.Absolute));
                 images.Add(source);
             }
             return images;
@@ -268,6 +268,7 @@ namespace MemoryGame.UserControls
             var window = Window.GetWindow(this);
             window.KeyDown += KeyPressHandler;
 
+            MainWindow.PlayMusic(new Uri(game.Thema + "Music.mp3", UriKind.Relative));
             SetupPlayfield(game.Config.FieldHeight, game.Config.FieldWidth);
             FillPlayField();
 
@@ -374,7 +375,11 @@ namespace MemoryGame.UserControls
         /// Written and enhanced by: Mark Hooijberg
         /// Implemented by: Jur Stedehouder
         /// </summary>
-        private void Btn_Quit_Click(object sender, RoutedEventArgs e) => Content = new UserControl_MainMenu();
+        private void Btn_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
+            Content = new UserControl_MainMenu();
+        }
 
         /// <summary>
         /// Save the state of the game and return to main menu.
@@ -384,6 +389,7 @@ namespace MemoryGame.UserControls
         {
             // TO DO: Put code to save game here.
             game.Save();
+            MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
             Content = new UserControl_MainMenu();
         }
 
