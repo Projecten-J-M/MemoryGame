@@ -39,6 +39,14 @@
       <name>Name</name>
       <score>400</score>
     </player>
+    <player>
+      <name>Name</name>
+      <score>460</score>
+    </player>
+    <player>
+      <name>Name</name>
+      <score>350</score>
+    </player>
   </highscores>
   <savedgame>
     <config>

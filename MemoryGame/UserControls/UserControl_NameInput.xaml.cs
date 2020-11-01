@@ -42,10 +42,11 @@ namespace MemoryGame.UserControls
         /// </summary>
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)
         {
+            int size = rbtn_difficultyNormal.IsChecked == true ? 4 : 6;
             Game game = new Game(new GameConfig()
             {
-                FieldHeight = 4,
-                FieldWidth = 4,
+                FieldHeight = size,
+                FieldWidth = size,
                 PlayerName1 = tbx_player1.Text,
                 PlayerName2 = tbx_player2.Text,
                 startScore = 100,

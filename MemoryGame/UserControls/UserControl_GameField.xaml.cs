@@ -188,7 +188,6 @@ namespace MemoryGame.UserControls
             for (int i = 0; i < cardAmount; i++)
             {
                 int imageNr = i % (cardAmount / 2);
-                //TODO: correct which directory its using, currently the wrong harold map.
                 ImageSource source = new BitmapImage(new Uri(files[imageNr], UriKind.Absolute));
                 images.Add(source);
             }
@@ -314,6 +313,11 @@ namespace MemoryGame.UserControls
                 lastCard = card;
         }
 
+        /// <summary>
+        /// Checks the card
+        /// </summary>
+        /// <param name="image">some description</param>
+        /// <param name="card">another description</param>
         private void CheckCard(Image image, Card card)
         { 
             card.SetAtMove(game);
