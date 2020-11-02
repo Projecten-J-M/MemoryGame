@@ -37,8 +37,8 @@ namespace MemoryGame.UserControls
 
         public UserControl_GameField(Game _game)
         {
-            InitializeComponent();
             game = null;
+            InitializeComponent();
             game = _game;
 
             time = new TimeSpan(0, 0, 0);
@@ -81,7 +81,10 @@ namespace MemoryGame.UserControls
                 grd_cardGrid.Children.Remove(lastCard.Image);
 
                 if (grd_cardGrid.Children.Count == 0)
+                {
+                    MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
                     Content = new UserControl_EndScreen(game);
+                }
             }
             else
             {
@@ -188,7 +191,6 @@ namespace MemoryGame.UserControls
             for (int i = 0; i < cardAmount; i++)
             {
                 int imageNr = i % (cardAmount / 2);
-                //TODO: correct which directory its using, currently the wrong harold map.
                 ImageSource source = new BitmapImage(new Uri(files[imageNr], UriKind.Absolute));
                 images.Add(source);
             }
@@ -314,6 +316,11 @@ namespace MemoryGame.UserControls
                 lastCard = card;
         }
 
+        /// <summary>
+        /// Checks the card
+        /// </summary>
+        /// <param name="image">some description</param>
+        /// <param name="card">another description</param>
         private void CheckCard(Image image, Card card)
         { 
             card.SetAtMove(game);
@@ -458,7 +465,8 @@ namespace MemoryGame.UserControls
         /// </summary>
         private void KeyPressW()
         {
-            Content = new UserControl_EndScreen(game);
+            MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
+            Content = new UserControl_EndScreen(this.game);
         }
         #endregion
     }
