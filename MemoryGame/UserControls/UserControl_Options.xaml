@@ -14,7 +14,7 @@
         <Slider x:Name="slider_volume" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.036,0.477" Height="21" Width="100" Margin="0, 220, 0, 0" Minimum="0.00" Maximum="1" ValueChanged="slider_volume_ValueChanged" Loaded="slider_volume_Loaded"/>
         <Label x:Name="lbl_percentage" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150, 210,0,0" FontSize="21" Width="auto" RenderTransformOrigin="0.454,0.672" Foreground="White"/>
         <CheckBox x:Name="cbox_animations" Content="Animations" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 250, 0, 0" Height="28" Width="auto" FontSize="20" Foreground="White" Visibility="Hidden"/>
-        <Button x:Name="btn_credits" Content="Credits" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="367,254,367,0" FontSize="20" Click="btn_credits_Click"/>
+        <Button x:Name="btn_credits" Content="Credits" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Margin="0,260,0,0" FontSize="20" Click="btn_credits_Click"/>
         <Label x:Name="lbl_reset" Content="Highscores succesfully reset!" HorizontalAlignment="Center" RenderTransformOrigin="0.036,0.477" FontSize="20" Height="40" Margin="0,125,0,0" VerticalAlignment="Top" Foreground="LightGreen" Width="auto" Visibility="Hidden"/>
     </Grid>
 </UserControl>

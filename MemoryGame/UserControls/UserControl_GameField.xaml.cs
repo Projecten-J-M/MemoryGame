@@ -37,8 +37,8 @@ namespace MemoryGame.UserControls
 
         public UserControl_GameField(Game _game)
         {
-            InitializeComponent();
             game = null;
+            InitializeComponent();
             game = _game;
 
             time = new TimeSpan(0, 0, 0);
@@ -81,7 +81,10 @@ namespace MemoryGame.UserControls
                 grd_cardGrid.Children.Remove(lastCard.Image);
 
                 if (grd_cardGrid.Children.Count == 0)
+                {
+                    MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
                     Content = new UserControl_EndScreen(game);
+                }
             }
             else
             {
@@ -462,7 +465,8 @@ namespace MemoryGame.UserControls
         /// </summary>
         private void KeyPressW()
         {
-            Content = new UserControl_EndScreen(game);
+            MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
+            Content = new UserControl_EndScreen(this.game);
         }
         #endregion
     }

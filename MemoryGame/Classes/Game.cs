@@ -96,11 +96,13 @@ namespace MemoryGame.Classes
             XmlNode player2 = savedGame.SelectSingleNode("//savedgame/player2");
             XmlNode round = savedGame.SelectSingleNode("//savedgame/round");
             XmlNode turn = savedGame.SelectSingleNode("//savedgame/turn");
+            XmlNode thema = savedGame.SelectSingleNode("//savedgame/thema");
 
             Config.FieldHeight = Convert.ToInt32(height.InnerText);
             Config.FieldWidth = Convert.ToInt32(width.InnerText);
             Round = Convert.ToInt32(round.InnerText);
             Turn = turn.InnerText == "Player1" ? PlayerTurn.Player1 : PlayerTurn.Player2;
+            Thema = thema.InnerText;
 
             Player1.Name = player1.SelectSingleNode("//savedgame/player1/name").InnerText;
             Player1.Score = Convert.ToInt32(player1.SelectSingleNode("//savedgame/player1/score").InnerText);
@@ -142,6 +144,7 @@ namespace MemoryGame.Classes
             XmlNode player2 = savedGame.SelectSingleNode("//player2");
             XmlNode round = savedGame.SelectSingleNode("//round");
             XmlNode turn = savedGame.SelectSingleNode("//turn");
+            XmlNode thema = savedGame.SelectSingleNode("//thema");
 
             // Clear previous cards
             cardCollection.InnerText = null;
@@ -150,6 +153,7 @@ namespace MemoryGame.Classes
             width.InnerText = Config.FieldWidth.ToString();
             round.InnerText = Round.ToString();
             turn.InnerText = Turn.ToString();
+            thema.InnerText = Thema;
 
             player1.SelectSingleNode("name").InnerText = Player1.Name;
             player1.SelectSingleNode("score").InnerText = Player1.Score.ToString();

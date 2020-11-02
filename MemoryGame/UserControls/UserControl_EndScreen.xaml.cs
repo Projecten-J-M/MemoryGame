@@ -27,7 +27,6 @@ namespace MemoryGame.UserControls
         public UserControl_EndScreen(Game _game)
         {
             InitializeComponent();
-            game = null;
             game = _game;
             ShowScore(new string[] { game.Player1.Name, game.Player2.Name});
             SaveScore();
@@ -35,7 +34,7 @@ namespace MemoryGame.UserControls
 
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
-            Content = new UserControl_NameInput();
+            Content = new UserControl_GameField(new Game(game.Config));
             //TODO: zorg ervoor dat de zelfde instellingen (namen etc) worden geladen met een geresette score, thema, tijd etc.
         }
 

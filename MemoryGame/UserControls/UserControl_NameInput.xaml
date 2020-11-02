@@ -22,8 +22,8 @@
             <System:String>DeKiller</System:String>
             <System:String>SuskeEnWiske</System:String>
         </ComboBox>
-        <Label Content="Difficulty:" HorizontalAlignment="Left" Margin="285,276,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <RadioButton x:Name="rbtn_difficultyNormal" Content="Normal (6x6)" HorizontalAlignment="Left" Margin="382,276,0,0" VerticalAlignment="Top"  FontSize="15" Foreground="White" GroupName="grp_difficutly" IsChecked="True"/>
-        <RadioButton x:Name="rbtn_difficultyHard" Content="Hard (6x6)" HorizontalAlignment="Left" Margin="382,300,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White" GroupName="grp_difficutly"/>
+        <Label Content="Difficulty:" HorizontalAlignment="Center" Margin="-150,275,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <RadioButton x:Name="rbtn_difficultyNormal" Content="Normal (4x4)" HorizontalAlignment="Center" Margin="75,275,0,0" VerticalAlignment="Top"  FontSize="15" Foreground="White" GroupName="grp_difficutly" IsChecked="True"/>
+        <RadioButton x:Name="rbtn_difficultyHard" Content="Hard (6x6)" HorizontalAlignment="Center" Margin="60,300,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White" GroupName="grp_difficutly"/>
     </Grid>
 </UserControl>

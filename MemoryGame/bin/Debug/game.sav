@@ -4,48 +4,36 @@
   </options>
   <highscores>
     <player>
-      <name>Speler 2</name>
-      <score>700</score>
+      <name>Person B</name>
+      <score>200</score>
     </player>
     <player>
-      <name>Speler 3</name>
-      <score>360</score>
-    </player>
-    <player>
-      <name>Speler 2</name>
-      <score>700</score>
-    </player>
-    <player>
-      <name>Speler 3</name>
-      <score>360</score>
-    </player>
-    <player>
-      <name>Speler 5 en Speler 6</name>
+      <name>Name and Name</name>
       <score>100</score>
     </player>
     <player>
-      <name>Name en Name</name>
-      <score>400</score>
+      <name>Name and Name</name>
+      <score>100</score>
     </player>
     <player>
-      <name>Anna</name>
+      <name>asdf and fgjh</name>
+      <score>100</score>
+    </player>
+    <player>
+      <name>asdf and fgjh</name>
+      <score>100</score>
+    </player>
+    <player>
+      <name>Name and Name</name>
+      <score>100</score>
+    </player>
+    <player>
+      <name>boewie</name>
       <score>450</score>
     </player>
     <player>
-      <name>Name</name>
-      <score>550</score>
-    </player>
-    <player>
-      <name>Name</name>
-      <score>400</score>
-    </player>
-    <player>
-      <name>Name</name>
-      <score>460</score>
-    </player>
-    <player>
-      <name>Name</name>
-      <score>350</score>
+      <name>Baba bowei</name>
+      <score>450</score>
     </player>
   </highscores>
   <savedgame>
@@ -59,7 +47,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>0</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120730.jpg</front>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120732.jpg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -68,7 +56,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>1</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\151926.jpg</front>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120740.jpg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -77,7 +65,7 @@
         </atmove>
         <back>\mempic.png</back>
         <column>2</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120732.jpg</front>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\155678.jpg</front>
         <isturned>False</isturned>
         <row>0</row>
       </card>
@@ -95,72 +83,36 @@
         </atmove>
         <back>\mempic.png</back>
         <column>0</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120740.jpg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>1</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120734.jpg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>2</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120742.jpg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>3</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120734.jpg</front>
-        <isturned>False</isturned>
-        <row>1</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>0</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120740.jpg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>1</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120730.jpg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>2</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\155678.jpg</front>
-        <isturned>False</isturned>
-        <row>2</row>
-      </card>
-      <card>
-        <atmove>
-        </atmove>
-        <back>\mempic.png</back>
-        <column>3</column>
         <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120744.jpg</front>
         <isturned>False</isturned>
-        <row>2</row>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>1</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120734.jpg</front>
+        <isturned>False</isturned>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>2</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120744.jpg</front>
+        <isturned>False</isturned>
+        <row>1</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>3</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120730.jpg</front>
+        <isturned>False</isturned>
+        <row>1</row>
       </card>
       <card>
         <atmove>
@@ -169,14 +121,41 @@
         <column>0</column>
         <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\151926.jpg</front>
         <isturned>False</isturned>
-        <row>3</row>
+        <row>2</row>
       </card>
       <card>
         <atmove>
         </atmove>
         <back>\mempic.png</back>
         <column>1</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120744.jpg</front>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120734.jpg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>2</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\151926.jpg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>3</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\155678.jpg</front>
+        <isturned>False</isturned>
+        <row>2</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
+        <column>0</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120740.jpg</front>
         <isturned>False</isturned>
         <row>3</row>
       </card>
@@ -184,7 +163,7 @@
         <atmove>
         </atmove>
         <back>\mempic.png</back>
-        <column>2</column>
+        <column>1</column>
         <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120732.jpg</front>
         <isturned>False</isturned>
         <row>3</row>
@@ -193,23 +172,34 @@
         <atmove>
         </atmove>
         <back>\mempic.png</back>
+        <column>2</column>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120730.jpg</front>
+        <isturned>False</isturned>
+        <row>3</row>
+      </card>
+      <card>
+        <atmove>
+        </atmove>
+        <back>\mempic.png</back>
         <column>3</column>
-        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\155678.jpg</front>
+        <front>C:\Users\Admin\Source\Repos\MemoryGame\MemoryGame\bin\Debug\DeKiller\120742.jpg</front>
         <isturned>False</isturned>
         <row>3</row>
       </card>
     </cardcollection>
     <player1>
-      <name>Name</name>
+      <name>Person A</name>
       <score>100</score>
-      <time>00:00:02</time>
+      <time>00:00:53</time>
     </player1>
     <player2>
-      <name>Name</name>
-      <score>100</score>
-      <time>00:00:00</time>
+      <name>Person B</name>
+      <score>200</score>
+      <time>00:00:07</time>
     </player2>
-    <round>0</round>
+    <round>8</round>
     <turn>Player1</turn>
+    <thema>
+    </thema>
   </savedgame>
 </memorygame>
