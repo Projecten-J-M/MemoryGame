@@ -196,6 +196,9 @@ namespace MemoryGame.UserControls
             }
             return images;
         }
+        /// <summary>
+        /// Fills the playing with cards and their location is randomly generated
+        /// </summary>
         private void FillPlayField()
         {
             if (game.CardCollection.Count == 0)
