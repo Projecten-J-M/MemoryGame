@@ -60,7 +60,7 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Show a new dialogwindow with the credits of the game makers.
+        /// Show a new dialog window with the credits of the game makers.
         /// By: Mark Hooijberg
         /// </summary>
         private void btn_credits_Click(object sender, RoutedEventArgs e)

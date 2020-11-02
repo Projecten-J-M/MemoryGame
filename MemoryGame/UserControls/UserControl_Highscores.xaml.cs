@@ -88,7 +88,9 @@ namespace MemoryGame.UserControls
         {
             Content = new UserControl_MainMenu();
         }
-
+        /// <summary>
+        /// Gets the info of a certain player then puts it into a table on the screen
+        /// </summary>
         public class Info_player
         {
 

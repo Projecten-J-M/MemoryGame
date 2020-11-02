@@ -32,8 +32,6 @@ namespace MemoryGame.UserControls
         /// Written by: Mark Hooijberg
         /// Implemented by: Duncan Dreize
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
@@ -42,8 +40,6 @@ namespace MemoryGame.UserControls
         /// <summary>
         /// Continues the last saved game.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Btn_continue_click(object sender, RoutedEventArgs e)
         {
             Game game = new Game(new GameConfig());

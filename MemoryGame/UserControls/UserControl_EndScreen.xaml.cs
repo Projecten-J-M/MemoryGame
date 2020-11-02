@@ -23,6 +23,9 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_EndScreen : UserControl
     {
+        /// <summary>
+        /// Shows the saved score
+        /// </summary>
         private Game game;
         public UserControl_EndScreen(Game _game)
         {
@@ -32,21 +35,27 @@ namespace MemoryGame.UserControls
             ShowScore(new string[] { game.Player1.Name, game.Player2.Name});
             SaveScore();
         }
-
+        /// <summary>
+        /// Loads the UserControl_NameInput screen
+        /// </summary>
         private void Btn_Play_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_NameInput();
-            //TODO: zorg ervoor dat de zelfde instellingen (namen etc) worden geladen met een geresette score, thema, tijd etc.
         }
-
+        /// <summary>
+        /// Loads the Usercontrol_Mainmenu screen
+        /// </summary>
         private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
         {
             Content = new UserControl_MainMenu();
         }
 
-        //Writes the winning player's score on a text file so it can be used for showing the Highscores. 
-        //Also shows the players at the end who won and with which amount of points.
-        //Created by: Duncan Dreize
+        /// <summary>
+        /// Writes the winning player's score on a text file so it can be used for showing the Highscores.
+        /// Also shows the players at the end who won and with which amount of points.
+        /// Created by: Duncan Dreize
+        /// </summary>
+        /// <param name="names"></param>
         private void ShowScore(string[] names)
         {
             if (game.Player1.Score > game.Player2.Score)
@@ -68,7 +77,10 @@ namespace MemoryGame.UserControls
                 lbl_winner_select.Content = "Something went wrong!";
             }
         }
-
+        /// <summary>
+        /// Saves the score of a player
+        /// Created by: Duncan Dreize and Mark Hooijberg
+        /// </summary>
         private void SaveScore()
         {
             Player player = new Player();
@@ -101,9 +113,6 @@ namespace MemoryGame.UserControls
             root.SelectSingleNode("//highscores").AppendChild(newHighscore);
 
             xmlDoc.Save("game.sav");
-
         }
     }
-    
-    
 }
