@@ -28,21 +28,18 @@ namespace MemoryGame.UserControls
 
         /// <summary>
         /// Assigns a new ContinueGame usercontrol object to the content.
-        /// By: Mark Hooijberg
-        /// Updated by: Duncan Dreize
+        /// Created by: Duncan Dreize.
         /// </summary>
-        private void Btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new ContinueGame();
-        }
+        private void Btn_Back_Click(object sender, RoutedEventArgs e) => Content = new ContinueGame();
 
         /// <summary>
-        /// Start a new game with configuration.
-        /// By: Mark Hooijberg
+        /// Loads the given input into a configuration and start a new game.
+        /// Created by: Mark Hooijberg.
         /// </summary>
         private void Btn_Continue_Click(object sender, RoutedEventArgs e)
         {
             int size = rbtn_difficultyNormal.IsChecked == true ? 4 : 6;
+
             Game game = new Game(new GameConfig()
             {
                 FieldHeight = size,
@@ -53,6 +50,7 @@ namespace MemoryGame.UserControls
                 StartPlayer = Game.PlayerTurn.Player1,
                 Thema = (string) cbbx_thema.SelectedItem
             });
+
             Content = new UserControl_GameField(game);
         }
     }

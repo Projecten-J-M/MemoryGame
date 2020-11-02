@@ -28,40 +28,27 @@ namespace MemoryGame.UserControls
 
         /// <summary>
         /// Assigns a new ContinueGame usercontrol object to the content.
-        /// By: Mark Hooijberg.
-        /// Updated by: Duncan Dreize
+        /// Created by: Mark Hooijberg.
+        /// Updated by: Duncan Dreize.
         /// </summary>
-        private void Btn_Play_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new ContinueGame();
-        }
+        private void Btn_Play_Click(object sender, RoutedEventArgs e) => Content = new ContinueGame();
 
         /// <summary>
         /// Assigns a new Highscores usercontrol object to the content.
-        /// By: Mark Hooijberg
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        private void Btn_Highscores_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_Highscores();
-        }
+        private void Btn_Highscores_Click(object sender, RoutedEventArgs e) => Content = new UserControl_Highscores();
 
         /// <summary>
         /// Assigns a new Options usercontrol object to the content.
-        /// By: Mark Hooijberg
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        private void Btn_Options_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_Options();
-        }
+        private void Btn_Options_Click(object sender, RoutedEventArgs e) => Content = new UserControl_Options();
 
         /// <summary>
         /// Closes the application.
-        /// By: Mark Hooijberg.
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        private void Btn_Quit_Click(object sender, RoutedEventArgs e)
-        {
-            // Close the application.
-            Application.Current.Shutdown();
-        }
+        private void Btn_Quit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
     }
 }

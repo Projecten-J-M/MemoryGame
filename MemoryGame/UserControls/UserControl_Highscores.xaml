@@ -9,6 +9,6 @@
     <Grid Background="#1a1a1a">
         <Label Content="Player Highscores:" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Back_Click"/>
-        <DataGrid x:Name="Highscore" HorizontalAlignment="Center" Height="185" Margin="0,115,0,0" VerticalAlignment="Top" Width="400"  AutoGenerateColumns="True" ColumnWidth="*"></DataGrid>
+        <DataGrid x:Name="Highscore" HorizontalAlignment="Center" Height="325" Margin="200,115,200,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="True" ColumnWidth="*" IsReadOnly="True"></DataGrid>
     </Grid>
 </UserControl>

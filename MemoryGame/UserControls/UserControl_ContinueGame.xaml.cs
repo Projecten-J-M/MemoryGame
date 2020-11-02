@@ -26,19 +26,15 @@ namespace MemoryGame.UserControls
             InitializeComponent();
         }
 
-        
         /// <summary>
-        /// Returns to main menu
-        /// Written by: Mark Hooijberg
-        /// Implemented by: Duncan Dreize
+        /// Assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Duncan Dreize.
         /// </summary>
-        private void Btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_MainMenu();
-        }
+        private void Btn_Back_Click(object sender, RoutedEventArgs e) => Content = new UserControl_MainMenu();
 
         /// <summary>
-        /// Continues the last saved game.
+        /// Load the stored game data and create a new game.
+        /// Created by: Mark Hooijberg.
         /// </summary>
         private void Btn_continue_click(object sender, RoutedEventArgs e)
         {
@@ -49,13 +45,9 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Assigns a new game configuration screen to the content.
-        /// Written by: Mark Hooijberg
-        /// Implemented by: Duncan Dreize
+        /// Assigns a new game configuration usercontrol object to the content.
+        /// Created by: Duncan Dreize.
         /// </summary>
-        private void Btn_newgame_click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_NameInput();
-        }
+        private void Btn_newgame_click(object sender, RoutedEventArgs e) => Content = new UserControl_NameInput();
     }
 }

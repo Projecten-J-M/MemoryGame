@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml;
 using System.Xml.Resolvers;
+using MemoryGame.Classes;
 
 namespace MemoryGame.UserControls
 {
@@ -29,82 +30,35 @@ namespace MemoryGame.UserControls
         {
             InitializeComponent();
             LoadHighScores();
-
-            //List<Info_player> Info = new List<Info_player>();
-            //Info.Add(new Info_player()
-            //{
-            //    Name = "Bob",
-            //    Score = 101,
-            //    Time = 50,
-                //});
-
-                //Info.Add(new Info_player()
-                //{
-                //    Name = "Frank",
-                //    Score = 90,
-                //    Time = 70,
-                //});
-
-                //Highscore.ItemsSource = Info;
-
-
-            }
+        }
 
         /// <summary>
-        /// Loads the highscores from game.sav into the Datagrid.
-        /// Made by: Duncan Dreize, Peter Jongman & Mark Hooijberg
+        /// Retrieve the saved highscores and display them onto the datagrid.
+        /// Created by: Duncan Dreize, Peter Jongman & Mark Hooijberg
         /// </summary>
         private void LoadHighScores()
         {
+            List<Highscore> highscores = new List<Highscore>();
             XmlDocument xmlDoc = new XmlDocument();
+
             xmlDoc.Load("game.sav");
-            XmlNode Highscores = xmlDoc.DocumentElement.GetElementsByTagName("highscores")[0];
-            List<Info_player> Info = new List<Info_player>();
+
             foreach (XmlNode node in xmlDoc.SelectNodes("//highscores/player"))
             {
-
-                string name = node["name"].InnerText.ToString();
-                int score = Convert.ToInt32(node["score"].InnerText);
-
-                Info.Add(new Info_player()
+                highscores.Add(new Highscore()
                 {
-                    Name = name,
-                    Score = score,
-                    Time = 0
+                    Name = node["name"].InnerText.ToString(),
+                    Score = Convert.ToInt32(node["score"].InnerText)
                 });
             }
-            Highscore.ItemsSource = Info;
-        }
 
-        
+            Highscore.ItemsSource = highscores;
+        }
 
         /// <summary>
-        /// Returns to main menu.
-        /// By: Mark Hooijberg.
+        /// Assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_MainMenu();
-        }
-        /// <summary>
-        /// Gets the info of a certain player then puts it into a table on the screen
-        /// </summary>
-        public class Info_player
-        {
-
-            public string Name { get; set; }
-
-            public int Score { get; set; }
-
-            public int Time { get; set; }
-        }
-        
-
-        private void Highscore_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        private void Btn_Back_Click(object sender, RoutedEventArgs e) => Content = new UserControl_MainMenu();
     }
 }

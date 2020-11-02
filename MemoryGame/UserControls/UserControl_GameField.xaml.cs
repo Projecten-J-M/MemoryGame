@@ -26,6 +26,8 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_GameField : UserControl
     {
+        // Private global variables:
+        private int BaseScore = 100;
         private bool canClick = true;
         private Card firstCard;
         private Card lastCard;
@@ -33,15 +35,12 @@ namespace MemoryGame.UserControls
         private DispatcherTimer timer;
         private DispatcherTimer viewCardTimer;
 
-        public TimeSpan time;
-
         public UserControl_GameField(Game _game)
         {
-            game = null;
             InitializeComponent();
+
             game = _game;
 
-            time = new TimeSpan(0, 0, 0);
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1000); 
             timer.Tick += dtClockTime_Tick;
@@ -51,11 +50,13 @@ namespace MemoryGame.UserControls
             viewCardTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             viewCardTimer.Tick += ViewCardTimer_Tick;
 
-
-
             SetActiveColors();
         }
 
+        /// <summary>
+        /// Game logic to deal with the selected cards after the user viewed them,
+        /// Including: turning / removing cards, adding points, stopping the game and switch player turn.
+        /// </summary>
         private void ViewCardTimer_Tick(object sender, EventArgs e)
         {
             viewCardTimer.Stop();           
@@ -88,6 +89,11 @@ namespace MemoryGame.UserControls
             }
             else
             {
+                firstCard.AtMove = null;
+                lastCard.AtMove = null;
+                firstCard.IsTurned = false;
+                lastCard.IsTurned = false;
+
                 firstCard.Image.Source = firstCard.Back;
                 lastCard.Image.Source = lastCard.Back;
             }
@@ -95,19 +101,17 @@ namespace MemoryGame.UserControls
             game.SwitchTurn();
             SetActiveColors();
             canClick = true;
-
         }
 
         #region UserControl Functions
         /// <summary>
         /// Toggles pause menu visibility and timer.
-        /// By Mark Hooijberg
+        /// Created by: Mark Hooijberg.
         /// </summary>
         private void TogglePauseMenu()
         {
             if (grd_pauseMenu.Visibility == Visibility.Hidden)
             {
-                // Pause timer etc.
                 timer.Stop();
                 viewCardTimer.Stop();
                 grd_pauseMenu.Visibility = Visibility.Visible;
@@ -115,7 +119,6 @@ namespace MemoryGame.UserControls
 
             else
             {
-                // Resume timer etc.
                 timer.Start();
                 if (lastCard != null & firstCard != null)
                     viewCardTimer.Start();
@@ -124,10 +127,9 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Toggles pause menu visibility and timer.
-        /// By Mark Hooijberg
+        /// Changes the label color of the player info,
+        /// according to which player is at turn.
         /// </summary>
-        ///
         private void SetActiveColors()
         {
             if (game.Turn == Game.PlayerTurn.Player1)
@@ -152,18 +154,18 @@ namespace MemoryGame.UserControls
 
         /// <summary>
         /// Assigns names to the player name labels.
-        /// By Mark Hooijberg
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        /// <param name="names">Sequence of names to be set.</param>
-        private void SetNames(string[] names)
+        /// <param name="playerNames">Sequence of player names.</param>
+        private void SetNames(string[] playerNames)
         {
-            lbl_player1Name.Content = names[0];
-            lbl_player2Name.Content = names[1];
+            lbl_player1Name.Content = playerNames[0];
+            lbl_player2Name.Content = playerNames[1];
         }
 
         /// <summary>
-        /// Create a grid for the cards to be loaded in with a given size.
-        /// By Mark Hooijberg.
+        /// Create row and column definitions in the card grid.
+        /// Created by: Mark Hooijberg.
         /// </summary>
         /// <param name="rows">Number of rows</param>
         /// <param name="columns">Number of columns</param>
@@ -177,14 +179,12 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Fills the card grid with elements.
-        /// By: Duncan Dreize and Niels Essink.
+        /// Returns a list of random images according to the current theme.
         /// </summary>
         private List<ImageSource> GetImagesList()
         {
             int cardAmount = game.Config.FieldHeight * game.Config.FieldWidth;
             string currentDirectory = Directory.GetCurrentDirectory();
-
             string[] files = Directory.GetFiles(currentDirectory + "\\" + game.Thema);
             List<ImageSource> images = new List<ImageSource>();
 
@@ -196,8 +196,10 @@ namespace MemoryGame.UserControls
             }
             return images;
         }
+
         /// <summary>
-        /// Fills the playing with cards and their location is randomly generated
+        /// Create Images and fill the card grid.
+        /// Created by: Niels Essink & Mark Hooijberg.
         /// </summary>
         private void FillPlayField()
         {
@@ -214,7 +216,7 @@ namespace MemoryGame.UserControls
                         Image image = new Image()
                         {
                             Stretch = Stretch.Fill,
-                            Source = new BitmapImage(new Uri("\\mempic.png", UriKind.Relative)),
+                            Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "\\" + game.Thema + "Back.png", UriKind.Absolute)),
                             Tag = new int[] { row, column }
                         };
 
@@ -235,14 +237,19 @@ namespace MemoryGame.UserControls
 
                         images.RemoveAt(randomNumber);
                         grd_cardGrid.Children.Add(image);
-                        //TODO: dont add to card collection but add information to the card with the same row and column.
                         game.CardCollection.Add(card);
                     }
                 }
             }
             else
             {
-                foreach (Card card in game.CardCollection)
+                List<Card> loadedCards = new List<Card>();
+                loadedCards = game.CardCollection.Where(x => x.IsTurned == false).ToList();
+
+                if (game.CardCollection.Where(x => x.IsTurned == true).Count() % 2 > 0)
+                    loadedCards.Add(game.CardCollection.Where(x => x.AtMove != null).OrderBy(x => x.AtMove).ToList().Last());
+
+                foreach (Card card in loadedCards)
                 {
                     Image image = new Image()
                     {
@@ -250,6 +257,12 @@ namespace MemoryGame.UserControls
                         Source = card.Back,
                         Tag = new int[] { card.Row, card.Column }
                     };
+
+                    if (card.IsTurned == true)
+                    {
+                        image.Source = card.Front;
+                        lastCard = card;
+                    }
 
                     Grid.SetRow(image, card.Row);
                     Grid.SetColumn(image, card.Column);
@@ -259,14 +272,15 @@ namespace MemoryGame.UserControls
                     card.Image = image;
                     grd_cardGrid.Children.Add(image);
                 }
+
             }
         }
         #endregion
 
         #region Event Handlers
         /// <summary>
-        /// Configures the PlayingField.
-        /// By: Mark Hooijberg.
+        /// Setup the playfield, play music and add a KeyPressHandler.
+        /// Created by: Mark Hooijberg.
         /// </summary>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -286,104 +300,51 @@ namespace MemoryGame.UserControls
             lbl_player2Time.Content = game.Player2.Time.Duration().ToString(@"mm\:ss");
         }
 
-        ///<summary>
-        ///Score system with time and Mulitpliers
-        ///by: Jur Stedehouder, Peter Jongman
-        ///Enhanced by: Mark Hooijberg
-        ///</summary>        
-        private int BaseScore = 100;
-        //private int BaseScore2 = 100;
+        /// <summary>
+        /// Load clicked card and pass this to the card validation function.
+        /// Created by: Jur Stedehouder, Peter Jongman
+        /// </summary>
         private void Card_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (canClick == true)
             {
                 Image image = (Image)sender;
                 firstCard = game.GetCard(image);
-                image.Source = firstCard.Front;
 
-                //CheckCard(image, card);
-                CheckCardSimple(image, firstCard);
+                firstCard.SetAtMove(game);
+                firstCard.IsTurned = true;
+
+                image.Source = firstCard.Front;
+                CheckCardSimple(firstCard);
             }
         }
 
-        private void CheckCardSimple(Image image, Card card)
+        /// <summary>
+        /// Checks if the second last and last card clicked are not the same and view them.
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="card"></param>
+        private void CheckCardSimple(Card card)
         {
-            //This method doesnt use the GetLastCard() method and saves space
             if (lastCard != null && lastCard != card)
             {
                 canClick = false;
-                viewCardTimer.Start();
-                
+                viewCardTimer.Start();                
             }
+
             else
                 lastCard = card;
         }
 
         /// <summary>
-        /// Checks the card
-        /// </summary>
-        /// <param name="image">some description</param>
-        /// <param name="card">another description</param>
-        private void CheckCard(Image image, Card card)
-        { 
-            card.SetAtMove(game);
-            card.IsTurned = true;
-
-            if ((game.CardCollection.Where(x => x.IsTurned == true).Count() - 1) % 2 > 0)
-            {                
-                Card lastCard = game.GetLastCard();
-                if ((card.Front as BitmapImage).UriSource == (lastCard.Front as BitmapImage).UriSource)
-                {
-                    int AddedScore = 0;
-                    if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 30)
-                        AddedScore -= 90;
-
-                    else if (TimeSpan.Parse("00:" + game.GetActivePlayer().Time.Duration().ToString()).TotalSeconds > 10)
-                        AddedScore -= 50;
-
-                    Player activePlayer = game.GetActivePlayer();
-                    game.GetActivePlayer().Score += BaseScore + AddedScore;
-
-                    if (activePlayer == game.Player1)
-                        lbl_player1Score.Content = activePlayer.Score;
-                    else
-                        lbl_player2Score.Content = activePlayer.Score;
-
-                    grd_cardGrid.Children.Remove(image);
-                    grd_cardGrid.Children.Remove(lastCard.Image);
-
-                    if (grd_cardGrid.Children.Count == 0)
-                        Content = new UserControl_EndScreen(game);
-                }
-                else
-                {
-                    card.AtMove = null;
-                    lastCard.AtMove = null;
-                    card.IsTurned = false;
-                    lastCard.IsTurned = false;
-
-
-                    image.Source = card.Back;
-                    lastCard.Image.Source = lastCard.Back;
-                }
-                game.SwitchTurn();
-                SetActiveColors();
-            }
-        }
-
-
-
-        /// <summary>
-        /// Fired when clicked on Continue in pause menu. Closes the pause menu.
-        /// By: Jur Stedehouder
-        /// Enhanced by: Mark Hooijberg
+        /// Closes the pause menu.
+        /// Created by: Jur Stedehouder.
         /// </summary>
         private void Btn_Continue_Click(object sender, RoutedEventArgs e) => TogglePauseMenu();
 
         /// <summary>
-        /// Return to main menu.
-        /// Written and enhanced by: Mark Hooijberg
-        /// Implemented by: Jur Stedehouder
+        /// Assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Jur Stedehouder.
         /// </summary>
         private void Btn_Quit_Click(object sender, RoutedEventArgs e)
         {
@@ -392,12 +353,11 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Save the state of the game and return to main menu.
-        /// By: Jur Stedehouder
+        /// Save the state of the game and assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Jur Stedehouder
         /// </summary>
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            // TO DO: Put code to save game here.
             game.Save();
             MainWindow.PlayMusic(new Uri("MenuMusic.mp3", UriKind.Relative));
             Content = new UserControl_MainMenu();
@@ -405,13 +365,13 @@ namespace MemoryGame.UserControls
 
         /// <summary>
         /// Dynamically changes the size of the card grid.
-        /// By: Mark Hooijberg
+        /// Created by: Mark Hooijberg
         /// </summary>
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             grd_cardGrid.Height = e.NewSize.Height - 150;
             grd_cardGrid.Width = grd_cardGrid.Height;
-            //TODO: Verfijning, als het te klein wordt dan crasht het
+
             foreach (RowDefinition rowDefinition in grd_cardGrid.RowDefinitions)
                 rowDefinition.Height = new GridLength(grd_cardGrid.Height / grd_cardGrid.RowDefinitions.Count());
             
@@ -420,32 +380,25 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Updates adds a second to the time and time label.
-        /// Originally witten by: Jur Stedehouder
-        /// Enhanced by: Mark Hooijberg
+        /// Adds a second to the player time and the player time label.
+        /// Created by: Jur Stedehouder
         /// Modified by: Duncan Dreize, added a second timer and keeps track of time per player.
         /// </summary>
         private void dtClockTime_Tick(object sender, EventArgs e)
         {
             game.GetActivePlayer().Time += new TimeSpan(0, 0, 1);
 
-
             if (game.Turn == Game.PlayerTurn.Player1)
-            { 
                 lbl_player1Time.Content = game.GetActivePlayer().Time.Duration().ToString(@"mm\:ss");
-            }
-             else if (game.Turn == Game.PlayerTurn.Player2)
-            {
-                lbl_player2Time.Content = game.GetActivePlayer().Time.Duration().ToString(@"mm\:ss");
-            }
-            
 
+            else
+                lbl_player2Time.Content = game.GetActivePlayer().Time.Duration().ToString(@"mm\:ss");
         }
 
         /// <summary>
         /// Executes different functions based on the key which is pressed
-        /// By: Mark Hooijberg
-        /// /// </summary>
+        /// Created by: Mark Hooijberg
+        /// </summary>
         /// <param name="e">Arguments collected by the event.</param>
         private void KeyPressHandler(object sender, KeyEventArgs e)
         {
@@ -462,9 +415,9 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Save score in the game object and overwrites the content with a new End Screen object.
-        /// This is to simulate a game ending.
-        /// By: Mark Hooijberg
+        /// Save score in the game object and assigns a new endscreen usercontrol object to the content.
+        /// (This is to simulate a game ending.)
+        /// Created by: Mark Hooijberg
         /// </summary>
         private void KeyPressW()
         {

@@ -23,39 +23,35 @@ namespace MemoryGame.UserControls
     /// </summary>
     public partial class UserControl_EndScreen : UserControl
     {
-        /// <summary>
-        /// Shows the saved score
-        /// </summary>
         private Game game;
+
         public UserControl_EndScreen(Game _game)
         {
             InitializeComponent();
+
             game = _game;
+
             ShowScore(new string[] { game.Player1.Name, game.Player2.Name});
             SaveScore();
         }
         /// <summary>
-        /// Loads the UserControl_NameInput screen
+        /// Start a new game with the current configuration.
+        /// Created by: Duncan Dreize.
         /// </summary>
-        private void Btn_Play_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_GameField(new Game(game.Config));
-            //TODO: zorg ervoor dat de zelfde instellingen (namen etc) worden geladen met een geresette score, thema, tijd etc.
-        }
+        private void Btn_Play_Click(object sender, RoutedEventArgs e) => Content = new UserControl_GameField(new Game(game.Config));
+
         /// <summary>
-        /// Loads the Usercontrol_Mainmenu screen
+        /// Assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Duncan Dreize.
         /// </summary>
-        private void Btn_MainMenu_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_MainMenu();
-        }
+        private void Btn_MainMenu_Click(object sender, RoutedEventArgs e) => Content = new UserControl_MainMenu();
 
         /// <summary>
         /// Writes the winning player's score on a text file so it can be used for showing the Highscores.
         /// Also shows the players at the end who won and with which amount of points.
-        /// Created by: Duncan Dreize
+        /// Created by: Duncan Dreize.
         /// </summary>
-        /// <param name="names"></param>
+        /// <param name="names">Player Names</param>
         private void ShowScore(string[] names)
         {
             if (game.Player1.Score > game.Player2.Score)
@@ -69,16 +65,14 @@ namespace MemoryGame.UserControls
                 lbl_loser_select.Content = names[0] + " has lost with " + game.Player1.Score + " points!";
             }
             else if (game.Player1.Score == game.Player2.Score)
-            {
                 lbl_tie_select.Content = names[0] + " and " + names[1] + " have tied with " + game.Player1.Score + " points!";
-            }
+
             else
-            {
                 lbl_winner_select.Content = "Something went wrong!";
-            }
         }
+
         /// <summary>
-        /// Saves the score of a player
+        /// Saves the score in the highscore list of the save file.
         /// Created by: Duncan Dreize and Mark Hooijberg
         /// </summary>
         private void SaveScore()

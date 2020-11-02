@@ -21,6 +21,10 @@ namespace MemoryGame.Classes
         public int Row { get; set; }
         public Player TurnedBy { get; set; }
 
+        /// <summary>
+        /// Set the AtMove variable to the last value.
+        /// </summary>
+        /// <param name="game"></param>
         public void SetAtMove(Game game)
         {
             List<Card> cards = game.CardCollection.Where(x => x.AtMove != null).ToList();
@@ -46,6 +50,11 @@ namespace MemoryGame.Classes
         public string Thema { get; set; }
         public enum PlayerTurn { Player1, Player2 }
 
+        /// <summary>
+        /// Load data from the input configuration in the object.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
+        /// <param name="config">Game configuration with start data.</param>
         public Game(GameConfig config)
         {
             Config = config;
@@ -57,6 +66,10 @@ namespace MemoryGame.Classes
             Round = 0;
         }
 
+        /// <summary>
+        /// Returns the player who's currently at move.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
         public Player GetActivePlayer()
         {
             if (Turn == PlayerTurn.Player1)
@@ -69,17 +82,18 @@ namespace MemoryGame.Classes
                 throw new Exception("There's no player at turn.", null);
         }
 
+        /// <summary>
+        /// Returns the card object that belongs to a specific image.
+        /// </summary>
         public Card GetCard(Image image)
         {
             return CardCollection.Where(x => x.Image == image).First();
         }
 
-        public Card GetLastCard()
-        {
-            List<Card> cards = CardCollection.Where(x => x.AtMove != null).OrderBy(x => x.AtMove).ToList();
-            return cards[cards.Count() - 2];
-        }
-
+        /// <summary>
+        /// Load game data from the save file.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
         public void LoadGameFromFile()
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -117,7 +131,7 @@ namespace MemoryGame.Classes
             foreach (XmlNode node in xmlDoc.SelectNodes("//cardcollection/card"))
             {
                 Card card = new Card();
-                card.AtMove = String.IsNullOrWhiteSpace(node["atmove"].InnerText) ? (int?) null : Convert.ToInt32(node.SelectSingleNode("//atmove").InnerText);
+                card.AtMove = String.IsNullOrWhiteSpace(node["atmove"].InnerText) ? (int?) null : Convert.ToInt32(node["atmove"].InnerText);
                 card.Back = new BitmapImage(new Uri(node["back"].InnerText, UriKind.Relative));
                 card.Column = Convert.ToInt16(node["column"].InnerText);
                 card.Front = new BitmapImage(new Uri(node["front"].InnerText, UriKind.Absolute));
@@ -128,6 +142,10 @@ namespace MemoryGame.Classes
             }
         }
 
+        /// <summary>
+        /// Save the game data to the save file.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
         public void Save()
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -201,6 +219,10 @@ namespace MemoryGame.Classes
             xmlDoc.Save("game.sav");
         }
 
+        /// <summary>
+        /// Switches the player who's currently at move.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
         public void SwitchTurn()
         {
             if (Turn == PlayerTurn.Player1)
@@ -209,6 +231,12 @@ namespace MemoryGame.Classes
                 Turn = PlayerTurn.Player1;
             Round++;
         }
+    }
+
+    public class Highscore
+    {
+        public string Name { get; set; }
+        public int Score { get; set; }
     }
 
     public class Player

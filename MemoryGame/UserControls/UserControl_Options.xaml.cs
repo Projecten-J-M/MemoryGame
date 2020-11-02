@@ -28,40 +28,31 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Return to main menu,
-        /// Written by: Mark Hooijberg
-        /// Implemented by: Jur Stedehouder
+        /// Assigns a new Mainmenu usercontrol object to the content.
+        /// Created by: Jur Stedehouder
         /// </summary>
-        private void Btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new UserControl_MainMenu();
-        }
+        private void Btn_Back_Click(object sender, RoutedEventArgs e) => Content = new UserControl_MainMenu();
 
         /// <summary>
         /// Calculates the volume percentage to update the volume percentage label and updates the volume.
-        /// By: Mark Hooijberg.
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">The event arguments to retrieve the new information.</param>
         private void slider_volume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            lbl_percentage.Content = Math.Round((e.NewValue * 100), 0) + "%";
-
-            MainWindow.SetBackgroundVolume(Math.Round(e.NewValue, 2));
+            lbl_percentage.Content = Math.Round(e.NewValue * 100, 0) + "%";
+            MainWindow.MediaPlayerVolume = Math.Round(e.NewValue, 2);
         }
 
         /// <summary>
-        /// Set the current volume value on the slider after its been loaded.
-        /// By: Mark Hooijberg.
+        /// Set the current volume value of the slider after its been loaded.
+        /// Created by: Mark Hooijberg.
         /// </summary>
-        private void slider_volume_Loaded(object sender, RoutedEventArgs e)
-        {
-            slider_volume.Value = MainWindow.mediaPlayer.Volume;
-        }
+        private void slider_volume_Loaded(object sender, RoutedEventArgs e) => slider_volume.Value = MainWindow.MediaPlayerVolume;
 
         /// <summary>
         /// Show a new dialog window with the credits of the game makers.
-        /// By: Mark Hooijberg
+        /// Created by: Mark Hooijberg
         /// </summary>
         private void btn_credits_Click(object sender, RoutedEventArgs e)
         {
@@ -70,15 +61,14 @@ namespace MemoryGame.UserControls
         }
 
         /// <summary>
-        /// Resets the highscore list
-        /// Made by: Duncan Dreize & Mark Hooijberg
+        /// Clear the saved highscores from the save file.
+        /// Made by: Duncan Dreize.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btn_reset_Click(object sender, RoutedEventArgs e)
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("game.sav");
+
             xmlDoc.SelectSingleNode("//highscores").InnerText = null;
             lbl_reset.Visibility = Visibility.Visible;
 

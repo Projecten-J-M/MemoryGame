@@ -24,6 +24,10 @@ namespace MemoryGame.Windows
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Closes the dialog window.
+        /// Created by: Mark Hooijberg.
+        /// </summary>
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Close();
