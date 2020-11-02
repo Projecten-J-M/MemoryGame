@@ -154,7 +154,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Background music.mp3" />
     <Resource Include="bin\Debug\DeKillerMusic.mp3" />
     <Resource Include="bin\Debug\DeKiller\120730.jpg" />
     <Resource Include="bin\Debug\DeKiller\120732.jpg" />
@@ -194,41 +193,6 @@
     <Resource Include="bin\Debug\SuskeEnWiske\354898.jpg" />
     <Resource Include="bin\Debug\SuskeEnWiske\4253.jpg" />
     <Resource Include="bin\Debug\SuskeEnWiske\72646.jpg" />
-    <Content Include="Suske en Wiske Thema\Suske En Wiske Background music.mp3" />
-    <Resource Include="Suske en Wiske Thema\1.jpg" />
-    <Resource Include="Suske en Wiske Thema\2.jpg" />
-    <Resource Include="Suske en Wiske Thema\3.jpg" />
-    <Resource Include="Suske en Wiske Thema\4.jpg" />
-    <Resource Include="Suske en Wiske Thema\5.jpg" />
-    <Resource Include="Suske en Wiske Thema\6.jpg" />
-    <Resource Include="Suske en Wiske Thema\7.jpg" />
-    <Resource Include="Suske en Wiske Thema\8.jpg" />
-    <Resource Include="Suske en Wiske Thema\9.jpg" />
-    <Resource Include="Harold\8.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\7.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\6.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\5.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\4.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\3.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\2.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Harold\1.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="mempic.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
