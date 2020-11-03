@@ -154,8 +154,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\DeKillerBack.png" />
-    <Resource Include="bin\Debug\SuskeEnWiskeBack.png" />
+    <Content Include="bin\Debug\DeKillerBack.png" />
+    <Content Include="bin\Debug\SuskeEnWiskeBack.png" />
     <Resource Include="bin\Debug\DeKillerMusic.mp3" />
     <Resource Include="bin\Debug\DeKiller\120730.jpg" />
     <Resource Include="bin\Debug\DeKiller\120732.jpg" />

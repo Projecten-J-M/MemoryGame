@@ -132,7 +132,7 @@ namespace MemoryGame.Classes
             {
                 Card card = new Card();
                 card.AtMove = String.IsNullOrWhiteSpace(node["atmove"].InnerText) ? (int?) null : Convert.ToInt32(node["atmove"].InnerText);
-                card.Back = new BitmapImage(new Uri(node["back"].InnerText, UriKind.Relative));
+                card.Back = new BitmapImage(new Uri(node["back"].InnerText, UriKind.Absolute));
                 card.Column = Convert.ToInt16(node["column"].InnerText);
                 card.Front = new BitmapImage(new Uri(node["front"].InnerText, UriKind.Absolute));
                 card.IsTurned = Convert.ToBoolean(node["isturned"].InnerText);
